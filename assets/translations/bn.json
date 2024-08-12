@@ -1,0 +1,45 @@
+{
+    "app_name": "Flutter Production Boilerplate",
+  
+    "bottom_nav_first": "হোম",
+    "bottom_nav_second": "তথ্য",
+  
+    "localization_title": "স্থানীয়করণ",
+    "localization_content": "Vereinfachte Übersetzungen mit dem Paket Easy Translations.",
+  
+    "linting_title": "লিন্টিং",
+    "linting_content": "Strengere Linting-Regeln mit Flutter Lints, empfohlen von Google.",
+  
+    "storage_title": "স্টোরেজ",
+    "storage_content": "Extrem schnelle, in reinem Dart geschriebene Datenbank mit Hive.",
+  
+    "dark_mode_title": "নাইট মোড",
+    "dark_mode_content": "Sanfter Übergang in den Nachtmodus durch die eingebaute Theming-Engine.",
+  
+    "state_title": "অবস্থা",
+    "state_content": "Leistungsstarke Zustandsverwaltung mit Cubit & BLOC.",
+  
+    "display_title": "প্রদর্শন",
+    "display_content": "Displays mit hoher Bildwiederholrate durch Flutter Displaymode.",
+  
+    "language_switch_title": "ইংরেজি ব্যবহার করুন",
+  
+    "github_card_title": "GitHub repository",
+    "website_card_title": "Webseite",
+    "twitter_card_title": "Twitter",
+    "instagram_card_title": "Instagram",
+    "donate_card_title": "Spenden",
+  
+    "author_divider_title": "Autor",
+    "packages_divider_title": "Pakete",
+  
+    "flutter_riverpod": "Riverpod",
+    "equatable": "Equatable",
+    "lints": "Flutter Lints",
+    "path_provider": "Path provider",
+    "flutter_displaymode": "Displaymode",
+    "easy_localization": "Easy localization",
+    "hive": "Hive",
+    "url_launcher": "Url launcher",
+    "fluentui_system_icons": "FluentUI Icons"
+  }
