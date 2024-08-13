@@ -60,7 +60,7 @@ New Flutter project with clean archetechture
    To obfuscate and hide sensitive ENV variable use the `obfuscate` attribute like so: `@EnviedField(obfuscate: true)`.
 
    **NOTE:** All `.env` files (and `envied`'s `env.g.dart` file) are `.gitignored` by default since they may contain sensitive information such as paths, keys, and such
-   To specify new env keys add them to the `.env-sample` file, which will be copied by other devs and the corresponding configuration will be provided
+   To specify new env keys add them to the `.env.sample` file, which will be copied by other devs and the corresponding configuration will be provided
 
 8. **Firebase Reporting**
 
