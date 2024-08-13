@@ -65,8 +65,18 @@ New Flutter project with clean archetechture
    In this step, we are going to integrate different Firebase Reporting Tools into your app, including [Firebase Analytics](https://firebase.google.com/products/analytics), [Firebase Performance](https://firebase.google.com/products/performance/), and [Crashlytics](https://firebase.google.com/products/crashlytics/).
 
    * Create your Firebase project on the [Firebase Console](https://console.firebase.google.com/)
-   * Download your `GoogleService-Info.plist` & `google-services.json` and drop them into their corresponding folders for iOS and Android. I've `.gitignore'd these files so that you won't, by any chance, have them checked into your VCS by mistake.
-   * Well, that's it. You're done! No further configuration is needed; I've already done that for you.
+   * Log into Firebase using your Google account by running the following command:
+    ```sh
+    firebase login
+    ```
+   * Install the FlutterFire CLI by running the following command from any directory:
+   ```sh
+   dart pub global activate flutterfire_cli
+   ```
+   * Use the FlutterFire CLI to configure your Flutter apps to connect to Firebase.
+   ```sh
+   flutterfire configure
+   ```
 
    **NOTES:**
    * All the Firebase Services we're using in this project are free of charge - at least at the time of writing - so they will not attract any charges.
@@ -74,13 +84,13 @@ New Flutter project with clean archetechture
 
 9. **Generate custom lint**
 
-   Run `dart run custom_lint`
+   * Run `dart run custom_lint`
 
 10. **Start Development**
-   Run `flutter pub get`
-   Run `dart run build_runner build`
-   Run `dart run build_runner watch` or `dart run build_runner watch --delete-conflicting-outputs`
-   Run `flutter run`
+   * Run `flutter pub get`
+   * Run `dart run build_runner build`
+   * Run `dart run build_runner watch` or `dart run build_runner watch --delete-conflicting-outputs`
+   * Run `flutter run`
 
 11. **Deploying**
 
