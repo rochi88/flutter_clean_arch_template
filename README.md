@@ -96,9 +96,18 @@ New Flutter project with clean archetechture
 
    Before releasing your Android app, make sure to sign it by:
 
+   ```sh
+   keytool -genkey -v -keystore ~/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key
+   ```
+
    [Generate a Keystore file](https://flutter.dev/docs/deployment/android#create-a-keystore) if you don't already have one. If you have one, ignore this step and go to the next.
 
    Go to `android/key.properties` and include your Keystore path, alias, and password.
+
+   * Running flutter build defaults to a release build.
+   ```sh
+   flutter build appbundle
+   ```
 
 ## Removing unwanted packages
 
