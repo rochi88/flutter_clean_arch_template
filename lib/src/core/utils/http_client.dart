@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
-import 'package:flutter_clean_pro_temp/main.dart';
-import 'package:flutter_clean_pro_temp/src/core/utils/http_interceptors/auth_interceptor.dart';
-import 'package:flutter_clean_pro_temp/src/core/utils/http_interceptors/error_interceptor.dart';
-import 'package:flutter_clean_pro_temp/src/core/utils/http_interceptors/user_agent_interceptor.dart';
+import '../../../main.dart';
+import '../../../src/core/utils/http_interceptors/auth_interceptor.dart';
+import '../../../src/core/utils/http_interceptors/error_interceptor.dart';
+import '../../../src/core/utils/http_interceptors/user_agent_interceptor.dart';
 import 'package:native_dio_adapter/native_dio_adapter.dart';
 import 'package:firebase_performance_dio/firebase_performance_dio.dart';
 import 'package:flutter/foundation.dart';

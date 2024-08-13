@@ -1,4 +1,4 @@
-import 'package:flutter_clean_pro_temp/src/features/home/presentation/home_screen/home_screen.dart';
+import '../../src/features/home/presentation/home_screen/home_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

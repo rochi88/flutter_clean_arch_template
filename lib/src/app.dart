@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_clean_pro_temp/src/core/localization/string_hardcoded.dart';
-import 'package:flutter_clean_pro_temp/src/core/providers/dark_mode.dart';
-import 'package:flutter_clean_pro_temp/src/core/styles/app_themes.dart';
-import 'package:flutter_clean_pro_temp/src/routing/app_router.dart';
+import '../src/core/localization/string_hardcoded.dart';
+import '../src/core/providers/dark_mode.dart';
+import '../src/core/styles/app_themes.dart';
+import '../src/routing/app_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 bool get isIOS => foundation.defaultTargetPlatform == TargetPlatform.iOS;
