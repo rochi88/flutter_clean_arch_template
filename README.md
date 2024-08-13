@@ -17,6 +17,8 @@ New Flutter project with clean archetechture
 
 3. **Application Bundle Name**
 
+   Change `name` on `pubspec.yaml`
+
    Now to change your app's package name/bundle identifier in both Android and iOS manifests, run `flutter pub run change_app_package_name:main <com.new.package.name>`.
 
    * This step uses [change_app_package_name](https://pub.dev/packages/change_app_package_name), go give the package some love.
