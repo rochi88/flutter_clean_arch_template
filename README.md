@@ -109,6 +109,30 @@ New Flutter project with clean archetechture
    flutter build appbundle
    ```
 
+## To generate SHA-1 for Flutter 
+
+```bash
+cd android
+./gradlew signingReport
+```
+
+## Feature Layer architecture
+
+| Layer        | Contains                             |
+| ------------ | ------------------------------------ |
+| Data         | Repository, DTO, Data Source         |
+| Domain       | Model                                |
+| Application  | Service                              |
+| Presentation | Widget, Provider (State), Controller |
+
+
+```mermaid
+flowchart LR;
+    A[Presentation]<-->B[Application];
+    B[Application]<-->C[Domain];
+    B[Application]<-->D[Data];
+```
+
 ## Removing unwanted packages
 
 If a package is not listed, then removing it from [pubspec.yaml](./pubspec.yaml) as well as all
@@ -173,7 +197,6 @@ This repository uses the following pub packages:
 
 | Package                                                                     | Version | Usage                                          |
 |-----------------------------------------------------------------------------|---------|------------------------------------------------|
-| [change_app_package_name](https://pub.dev/packages/change_app_package_name) | ^2.4.9  | Changes app package name with a single command.|
 | [Flutter Riverpod](https://pub.dev/packages/flutter_riverpod)               | ^2.4.9  | State management*                              |
 | [Flutter Lints](https://pub.dev/packages/flutter_lints)                     | ^3.0.1  | Stricter linting rules                         |
 | [Path Provider](https://pub.dev/packages/path_provider)                     | ^2.1.2  | Get the save path for Hive                     |
@@ -181,7 +204,7 @@ This repository uses the following pub packages:
 | [Easy Localization](https://pub.dev/packages/easy_localization)             | ^3.0.3  | Makes localization easy                        |
 | [Hive](https://pub.dev/packages/hive)                                       | ^2.2.3  | Platform independent storage.                  |
 | [Url Launcher](https://pub.dev/packages/url_launcher)                       | ^6.2.4  | Open urls in Browser                           |
-| [FluentUI Icons](https://pub.dev/packages/fluentui_system_icons)            | ^0.2.2  | Microsoft's open source icon library           |
+
 
 > \* Recommended to keep regardless of your project
 
