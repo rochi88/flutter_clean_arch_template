@@ -32,6 +32,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 
 Future<void> main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   // Set the path to the temporary directory
   tempPath = (await getTemporaryDirectory()).path;
 
@@ -90,7 +91,6 @@ Future<void> _initializeApp() async {
   if (!kIsWeb) {
     await setupFlutterNotifications();
   }
-  await EasyLocalization.ensureInitialized();
 
   if (Platform.isAndroid) {
     await FlutterDisplayMode.setHighRefreshRate();

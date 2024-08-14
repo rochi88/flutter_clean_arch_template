@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
+import 'package:flutter_clean_pro_temp/src/env.dart';
 import '../../../main.dart';
 import '../../../src/core/utils/http_interceptors/auth_interceptor.dart';
 import '../../../src/core/utils/http_interceptors/error_interceptor.dart';
@@ -13,6 +14,7 @@ import 'package:dio_cache_interceptor_isar_store/dio_cache_interceptor_isar_stor
 class HttpClient with DioMixin implements Dio {
   HttpClient({BaseOptions? baseOptions}) {
     options = (baseOptions ?? BaseOptions()).copyWith(
+      baseUrl: baseOptions?.baseUrl ?? Env.serverUrl,
       validateStatus: (int? status) {
         return status != null && status >= 200 && status < 400;
       },

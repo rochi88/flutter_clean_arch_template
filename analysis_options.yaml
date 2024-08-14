@@ -12,10 +12,16 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   plugins:
     - custom_lint
+  errors:
+    missing_required_param: error
+    missing_return: warning
   exclude:
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
     - lib/firebase_options.dart
+  strong-mode:
+    implicit-casts: true
+    implicit-dynamic: true
 
 linter:
   # The lint rules applied to this project can be customized in the
@@ -35,4 +41,3 @@ linter:
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
-  

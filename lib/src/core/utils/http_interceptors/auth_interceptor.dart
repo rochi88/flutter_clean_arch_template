@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_clean_pro_temp/src/core/services/storage/secure_storage_service.dart';
 
 class AuthInterceptor extends Interceptor {
   @override
@@ -8,7 +9,7 @@ class AuthInterceptor extends Interceptor {
     // TODO(You): Put the paths you want the interceptor to ignore
     if (!options.path.contains('/login')) {
       // TODO(You): Fetch your access token and plug it in
-      const token = '<YOUR-TOKEN-HERE>';
+      Future<String?> token = SecureStorageService().readSecureData('token');
       options.headers[HttpHeaders.authorizationHeader] = 'Bearer $token';
     }
     handler.next(options);
