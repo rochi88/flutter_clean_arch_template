@@ -1,4 +1,4 @@
-import 'package:flutter_clean_pro_temp/src/core/utils/http_client.dart';
+import '../../../core/utils/http_client.dart';
 
 import 'auth_ripository_interface.dart';
 import '../domain/auth_state.dart';

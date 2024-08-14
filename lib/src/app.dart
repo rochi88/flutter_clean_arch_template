@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_clean_pro_temp/src/core/providers/app_state_provider.dart';
+import '../src/core/providers/app_state_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../src/core/localization/string_hardcoded.dart';
 import '../src/core/styles/app_themes.dart';

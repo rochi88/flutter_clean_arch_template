@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
-import 'package:flutter_clean_pro_temp/src/env.dart';
+import '../../../src/env.dart';
 import '../../../main.dart';
 import '../../../src/core/utils/http_interceptors/auth_interceptor.dart';
 import '../../../src/core/utils/http_interceptors/error_interceptor.dart';

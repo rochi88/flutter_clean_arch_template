@@ -1,4 +1,4 @@
-import 'package:flutter_clean_pro_temp/src/features/auth/data/auth_ripository.dart';
+import '../../data/auth_ripository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../domain/auth_state.dart';
 

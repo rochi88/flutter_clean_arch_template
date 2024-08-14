@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_clean_pro_temp/src/core/services/storage/secure_storage_service.dart';
+import '../../services/storage/secure_storage_service.dart';
 
 class AuthInterceptor extends Interceptor {
   @override
