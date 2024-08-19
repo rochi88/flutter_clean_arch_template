@@ -1,6 +1,6 @@
 import '../../data/auth_ripository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../domain/auth_state.dart';
+import '../../domain/enums/auth_state.dart';
 
 part 'auth_provider.g.dart';
 

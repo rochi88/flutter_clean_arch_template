@@ -1,4 +1,4 @@
-import '../../src/features/home/presentation/home_screen/home_screen.dart';
+import '../features/home/presentation/views/home_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

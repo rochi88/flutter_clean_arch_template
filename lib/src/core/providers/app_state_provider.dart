@@ -12,10 +12,28 @@ class AppStateNotifier extends _$AppStateNotifier {
         token: SecureStorageService().readSecureData('token'),
         isDarkModeEnabled: false,
         isSynced: false,
-        dbVersion: '0.0.1');
+        dbUpdatedAt: null);
   }
 
   void toggleTheme() {
     state = state.copyWith(isDarkModeEnabled: !state.isDarkModeEnabled);
+  }
+
+  void toggleSync() {
+    state = state.copyWith(isSynced: !state.isSynced);
+  }
+
+  Future<void> setToken(String token) async {
+    await SecureStorageService().writeSecureData('token', token);
+    state = state.copyWith(token: Future.value(token));
+  }
+
+  Future<void> deleteToken() async {
+    await SecureStorageService().deleteSecureData('token');
+    state = state.copyWith(token: Future.value(null));
+  }
+
+  Future<void> setDbUpdatedAt(DateTime dbUpdatedAt) async {
+    state = state.copyWith(dbUpdatedAt: dbUpdatedAt);
   }
 }

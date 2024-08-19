@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppThemes {
@@ -14,6 +15,9 @@ class AppThemes {
         color: AppColors.lightBg,
       ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
+      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme)
+          .copyWith(
+              bodyMedium: const TextStyle(color: AppColors.lightBodyTextColor)),
     );
   }
 
@@ -24,6 +28,13 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: AppColors.lightPrimary,
       scaffoldBackgroundColor: AppColors.darkBg,
+      appBarTheme: const AppBarTheme(
+        color: AppColors.darkBg,
+      ),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme)
+          .copyWith(
+              bodyMedium: const TextStyle(color: AppColors.darkBodyTextColor)),
     );
   }
 

@@ -15,6 +15,15 @@ New Flutter project with clean archetechture
 
    Run `flutter pub get` to fetch dependencies.
 
+   if you want to run on ubuntu linux build Run
+   ```sh
+   sudo apt install libsecret-1-dev libsecret-tools libsecret-1-0
+   ```
+
+   ```sh
+   sudo apt install xapp-sn-watcher libxapp-gtk3-module
+   ```
+
 3. **Application Bundle Name**
 
    Change `name` on `pubspec.yaml`

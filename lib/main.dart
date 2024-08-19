@@ -34,11 +34,17 @@ Future<void> main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   // Set the path to the temporary directory
-  tempPath = (await getTemporaryDirectory()).path;
+  if (!kIsWeb) {
+    tempPath = (await getTemporaryDirectory()).path;
+  }
 
   // Retain native splash screen until Dart is ready
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  await _initializeApp();
+
+  if (!(defaultTargetPlatform == TargetPlatform.linux)) {
+    await _initializeApp();
+  }
+
   runZonedGuarded(
       () => runApp(
             ProviderScope(

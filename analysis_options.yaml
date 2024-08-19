@@ -14,7 +14,10 @@ analyzer:
     - custom_lint
   errors:
     missing_required_param: error
-    missing_return: warning
+    missing_return: error
+    invalid_assignment: warning
+    dead_code: info
+    prefer_single_quotes: info
   exclude:
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
@@ -36,7 +39,7 @@ linter:
   # producing the lint.
   rules:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
     always_use_package_imports: false # TODO(You): Remove line, needed for the template
 
 # Additional information about this file can be found at

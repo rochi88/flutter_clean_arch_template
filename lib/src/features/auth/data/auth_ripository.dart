@@ -1,7 +1,7 @@
 import '../../../core/utils/http_client.dart';
 
 import 'auth_ripository_interface.dart';
-import '../domain/auth_state.dart';
+import '../domain/enums/auth_state.dart';
 
 class AuthRepository implements AuthRepositoryInterface {
   @override

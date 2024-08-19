@@ -1,4 +1,4 @@
-import '../domain/auth_state.dart';
+import '../domain/enums/auth_state.dart';
 
 abstract class AuthRepositoryInterface {
   Future<AuthState> login(String phone, String password);

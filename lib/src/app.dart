@@ -5,7 +5,7 @@ import 'package:easy_localization/easy_localization.dart';
 import '../src/core/providers/app_state_provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../src/core/localization/string_hardcoded.dart';
-import '../src/core/styles/app_themes.dart';
+import 'core/themes/app_themes.dart';
 import '../src/routing/app_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

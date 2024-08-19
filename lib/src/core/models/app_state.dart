@@ -3,23 +3,23 @@ class AppState {
       {required this.token,
       required this.isDarkModeEnabled,
       required this.isSynced,
-      required this.dbVersion});
+      required this.dbUpdatedAt});
   Future<String?> token;
   bool isDarkModeEnabled;
   bool isSynced;
-  String? dbVersion;
+  DateTime? dbUpdatedAt;
 
   AppState copyWith({
     Future<String?>? token,
     bool? isDarkModeEnabled,
     bool? isSynced,
-    String? dbVersion,
+    DateTime? dbUpdatedAt,
   }) {
     return AppState(
       token: token ?? this.token,
       isDarkModeEnabled: isDarkModeEnabled ?? this.isDarkModeEnabled,
       isSynced: isSynced ?? this.isSynced,
-      dbVersion: dbVersion ?? this.dbVersion,
+      dbUpdatedAt: dbUpdatedAt ?? this.dbUpdatedAt,
     );
   }
 }
