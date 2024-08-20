@@ -163,8 +163,8 @@ to [ios/Runner/Info.plist](./ios/Runner/Info.plist) and remove the following cod
 ```
 <key>CFBundleLocalizations</key>
 <array>
-	<string>en</string>
-   <string>bn</string>
+  <string>en</string>
+  <string>bn</string>
 </array>
 ```
 
@@ -213,7 +213,7 @@ This repository uses the following pub packages:
 | [Path Provider](https://pub.dev/packages/path_provider)                     | ^2.1.2  | Get the save path for Hive                     |
 | [Flutter Displaymode](https://pub.dev/packages/flutter_displaymode)         | ^0.6.0  | Support high refresh rate displays             |
 | [Easy Localization](https://pub.dev/packages/easy_localization)             | ^3.0.3  | Makes localization easy                        |
-| [Hive](https://pub.dev/packages/hive)                                       | ^2.2.3  | Platform independent storage.                  |
+| [Isar](https://pub.dev/packages/isar)                                       | ^3.1.0  | Platform independent storage.                  |
 | [Url Launcher](https://pub.dev/packages/url_launcher)                       | ^6.2.4  | Open urls in Browser                           |
 
 
