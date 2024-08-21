@@ -1,5 +1,13 @@
 {
     "app_name": "Flutter Production Boilerplate",
+
+    "hoem": "হোম",
+    "loading" : "Loading",
+    "email" : "Email",
+    "password" : "Password",
+    "name" : "Name",
+    "sign_in" : "Sign In",
+    "sign_up" : "Sign Up",
   
     "bottom_nav_first": "হোম",
     "bottom_nav_second": "তথ্য",
