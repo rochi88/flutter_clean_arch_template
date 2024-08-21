@@ -42,7 +42,6 @@ format: ## Formats the code
 	@echo "╠ Formatting the code"
 	@dart format lib .
 	@flutter pub run import_sorter:main
-	@flutter format lib
 
 lint: ## Lints the code
 	@echo "╠ Verifying code..."
