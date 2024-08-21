@@ -1,4 +1,4 @@
-.PHONY: all run_dev_web run_dev_mobile run_unit clean upgrade lint format build_dev_mobile help watch gen run_stg_mobile run_prd_mobile build_apk_dev build_apk_stg build_apk_prd purge run_debug
+.PHONY: all run_dev_web run_dev_mobile run_unit clean upgrade lint format build_dev_mobile help watch gen run_stg_mobile run_prd_mobile build_apk_dev build_apk_stg build_apk_prd purge run_debug run_dev
 
 all: lint format run_dev_mobile
 
@@ -96,4 +96,5 @@ purge: ## Purges the Flutter
 run_debug:
 	@flutter run --debug
 
-	
+run_dev:
+	@flutter run -d linux -t lib/main_dev.dart
