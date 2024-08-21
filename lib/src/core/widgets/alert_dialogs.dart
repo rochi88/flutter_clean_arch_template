@@ -1,9 +1,13 @@
+// Dart imports:
 import 'dart:io';
 
-import '../localization/string_hardcoded.dart';
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+// Project imports:
+import '../localization/string_hardcoded.dart';
 
 const kDialogDefaultKey = Key('dialog-default-key');
 

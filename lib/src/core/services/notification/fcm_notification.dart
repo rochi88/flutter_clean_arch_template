@@ -1,6 +1,9 @@
+// Flutter imports:
+import 'package:flutter/foundation.dart';
+
+// Package imports:
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter/foundation.dart';
 
 /// Create a [AndroidNotificationChannel] for heads up notifications
 late AndroidNotificationChannel channel;

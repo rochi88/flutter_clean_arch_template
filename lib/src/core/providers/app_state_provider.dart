@@ -1,6 +1,9 @@
+// Package imports:
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+// Project imports:
 import '../models/app_state.dart';
 import '../services/storage/secure_storage_service.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'app_state_provider.g.dart';
 

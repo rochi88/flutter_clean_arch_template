@@ -1,6 +1,10 @@
+// Dart imports:
 import 'dart:io';
 
+// Package imports:
 import 'package:dio/dio.dart';
+
+// Project imports:
 import '../../services/storage/secure_storage_service.dart';
 
 class AuthInterceptor extends Interceptor {

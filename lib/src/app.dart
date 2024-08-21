@@ -1,13 +1,18 @@
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' as foundation;
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:easy_localization/easy_localization.dart';
-import '../src/core/providers/app_state_provider.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../src/core/localization/string_hardcoded.dart';
-import 'core/themes/app_themes.dart';
-import '../src/routing/app_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+// Project imports:
+import '../src/core/localization/string_hardcoded.dart';
+import '../src/core/providers/app_state_provider.dart';
+import '../src/routing/app_router.dart';
+import 'core/themes/app_themes.dart';
 
 bool get isIOS => foundation.defaultTargetPlatform == TargetPlatform.iOS;
 

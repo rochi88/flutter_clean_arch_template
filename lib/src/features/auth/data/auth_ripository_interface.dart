@@ -1,3 +1,4 @@
+// Project imports:
 import '../domain/enums/auth_state.dart';
 
 abstract class AuthRepositoryInterface {

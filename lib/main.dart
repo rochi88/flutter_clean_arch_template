@@ -1,20 +1,26 @@
-import 'dart:io';
+// Dart imports:
 import 'dart:async';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
+import 'dart:io';
+
+// Flutter imports:
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_performance/firebase_performance.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:firebase_performance/firebase_performance.dart';
 import 'package:path_provider/path_provider.dart';
-import 'src/core/services/notification/fcm_notification.dart';
 
-import 'src/app.dart';
+// Project imports:
 import 'firebase_options.dart';
+import 'src/app.dart';
+import 'src/core/services/notification/fcm_notification.dart';
 
 late String tempPath;
 

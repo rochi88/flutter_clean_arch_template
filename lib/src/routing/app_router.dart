@@ -1,6 +1,9 @@
-import '../features/home/presentation/views/home_screen.dart';
+// Package imports:
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+// Project imports:
+import '../features/home/presentation/views/home_screen.dart';
 
 part 'app_router.g.dart';
 

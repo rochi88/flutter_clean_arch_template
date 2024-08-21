@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:google_fonts/google_fonts.dart';
+
+// Project imports:
 import 'app_colors.dart';
 
 class AppThemes {
