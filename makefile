@@ -1,6 +1,8 @@
 .PHONY: all run_dev_web run_dev_mobile run_unit clean upgrade lint format build_dev_mobile help watch gen run_stg_mobile run_prd_mobile build_apk_dev build_apk_stg build_apk_prd build_bundle purge run_debug run_dev
 
-all: lint format run_dev_mobile
+all_dev: lint format run_dev
+
+all_debug: lint format run_debug
 
 # Adding a help file: https://gist.github.com/prwhite/8168133#gistcomment-1313022
 help: ## This help dialog.

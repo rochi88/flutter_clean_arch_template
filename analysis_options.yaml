@@ -23,6 +23,7 @@ analyzer:
     - lib/**/*.freezed.dart
     - lib/firebase_options.dart
     - lib/main_dev.dart
+    - lib/src/app_dev.dart
   strong-mode:
     implicit-casts: true
     implicit-dynamic: true
