@@ -103,6 +103,10 @@ New Flutter project with clean archetechture
    * Run `dart run build_runner watch` or `dart run build_runner watch --delete-conflicting-outputs`
    * Run `flutter run`
 
+OR
+   * Run `make watch` and
+   * Run `make run_debug`
+
 11. **Deploying**
 
    Before releasing your Android app, make sure to sign it by:
@@ -118,6 +122,11 @@ New Flutter project with clean archetechture
    * Running flutter build defaults to a release build.
    ```sh
    flutter build appbundle
+   ```
+
+   OR
+   ```sh
+   make build_bundle
    ```
 
 ## To generate SHA-1 for Flutter 
