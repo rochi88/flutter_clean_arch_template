@@ -48,7 +48,6 @@ class DevApp extends ConsumerWidget {
             splitScreenMode: true,
             builder: (_, child) {
               return MaterialApp.router(
-                useInheritedMediaQuery: true,
                 routerConfig: appRouter,
                 localizationsDelegates: context.localizationDelegates,
                 supportedLocales: context.supportedLocales,

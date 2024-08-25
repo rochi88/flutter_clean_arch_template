@@ -23,7 +23,7 @@ import 'firebase_options.dart';
 import 'src/app_dev.dart';
 import 'src/core/services/notification/fcm_notification.dart';
 
-late String tempPath;
+late String? tempPath;
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -80,19 +80,14 @@ Future<void> main() async {
 }
 
 Future<void> _initializeApp() async {
-  if (kIsWeb) {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    return;
-  }
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await FirebaseCrashlytics.instance
+      .setCrashlyticsCollectionEnabled(!kDebugMode);
+  await FirebasePerformance.instance
+      .setPerformanceCollectionEnabled(!kDebugMode);
 
   await FirebaseMessaging.instance.requestPermission(
     provisional: true,
@@ -112,11 +107,4 @@ Future<void> _initializeApp() async {
   if (Platform.isAndroid) {
     await FlutterDisplayMode.setHighRefreshRate();
   }
-  await _configureCrashlytics();
-  await FirebasePerformance.instance.setPerformanceCollectionEnabled(false);
-}
-
-Future<void> _configureCrashlytics() async {
-  await FirebaseCrashlytics.instance
-      .setCrashlyticsCollectionEnabled(!kDebugMode);
 }

@@ -1,6 +1,8 @@
 // Package imports:
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 
 // Project imports:
 import '../features/home/presentation/views/home_screen.dart';
@@ -13,7 +15,7 @@ enum AppRoute { home }
 GoRouter appRouter(AppRouterRef ref) {
   return GoRouter(
     initialLocation: '/',
-    debugLogDiagnostics: false,
+    debugLogDiagnostics: kDebugMode,
     routes: [
       GoRoute(
         path: '/',
@@ -21,5 +23,8 @@ GoRouter appRouter(AppRouterRef ref) {
         builder: (context, state) => const HomeScreen(),
       ),
     ],
+    observers: (!kDebugMode)
+        ? [FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance)]
+        : [],
   );
 }

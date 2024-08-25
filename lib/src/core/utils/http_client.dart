@@ -32,7 +32,7 @@ class HttpClient with DioMixin implements Dio {
       DioCacheInterceptor(
         options: CacheOptions(
           maxStale: const Duration(hours: 12),
-          store: IsarCacheStore(tempPath),
+          store: IsarCacheStore(tempPath!),
           policy: CachePolicy.request,
         ),
       ),
