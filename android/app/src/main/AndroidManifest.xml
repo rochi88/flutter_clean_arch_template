@@ -18,6 +18,8 @@
         android:label="flutter_clean_pro_temp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_rules"
         android:enableOnBackInvokedCallback="true">
         <activity
             android:name=".MainActivity"

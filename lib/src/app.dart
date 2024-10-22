@@ -37,7 +37,7 @@ class MyApp extends ConsumerWidget {
                 supportedLocales: context.supportedLocales,
                 locale: context.locale,
                 debugShowCheckedModeBanner: false,
-                theme: AppThemes.idark(),
+                theme: AppThemes.ilight(),
               );
             })
         : ScreenUtilInit(

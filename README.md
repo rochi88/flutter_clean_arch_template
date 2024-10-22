@@ -28,9 +28,12 @@ New Flutter project with clean archetechture
 
    Change `name` on `pubspec.yaml`
 
-   Now to change your app's package name/bundle identifier in both Android and iOS manifests, run `flutter pub run change_app_package_name:main <com.new.package.name>`.
+   Now to change your app's package name/bundle identifier in both Android and iOS manifests, run `dart run change_app_package_name:main <com.new.package.name>`.
 
    * This step uses [change_app_package_name](https://pub.dev/packages/change_app_package_name), go give the package some love.
+
+   `for macos`
+   find `com.example.flutterCleanProTemp` and replace with `<package_name>`
 
 4. **Application Name**
    Next, you'll need to change your app's user-readable label - the `CFBundleName` and/or `CFBundleDisplayName` within the `Info.plist` (for iOS) and `android:label` field in your application node in `AndroidManifest.xml` (for Android).
@@ -43,7 +46,7 @@ New Flutter project with clean archetechture
 
    Then we'll auto-generate your app launcher icons using the [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) package.
    * Copy the image you want to make your launcher icons out of to `assets/icon/icon.png.`
-   * Now run `flutter pub run flutter_launcher_icons`. This command will auto-generate Android and iOS launcher icons from the PNG file for the different DPIs and place them in their respective resource directories.
+   * Now run `dart run flutter_launcher_icons`. This command will auto-generate Android and iOS launcher icons from the PNG file for the different DPIs and place them in their respective resource directories.
 
    **NOTE**: Check the [package documentation](https://pub.dev/packages/flutter_launcher_icons#book-guide) for more configuration options on generating launcher icons updating your `pubspec. yaml` accordingly.
    For example, you may want different icons for different platforms since Android allows you to use a transparent icon and iOS doesn't.
@@ -54,7 +57,7 @@ New Flutter project with clean archetechture
    We'll then generate native splash screens for both of our platforms which your app will display before loading is complete and for this, we'll use [flutter_native_splash](https://pub.dev/packages/flutter_native_splash).
    * Copy the image you want to be displayed at the center of your splash screen to `assets/splash/splash.png.`
    * To change the background color of your splash screen, go to your `pubspec.yaml` under `flutter_native_splash -> color` and put your preferred color code. The default is white.
-   * Finally, run `flutter pub run flutter_native_splash:create` to generate your resources from the splash image and update your manifest files.
+   * Finally, run `dart run flutter_native_splash:create` to generate your resources from the splash image and update your manifest files.
 
 7. **Environment variables**
 
