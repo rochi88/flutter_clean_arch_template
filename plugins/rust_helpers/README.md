@@ -90,3 +90,16 @@ For help getting started with Flutter, view our
 [online documentation](https://docs.flutter.dev), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+## execute the code generator whenever the Rust code is changed, or use --watch to automatically
+```sh
+flutter_rust_bridge_codegen generate --watch
+```
+
+## Run It for web
+`P.S. The build-web command: Because Flutter Web does not have a build hook yet`
+```sh
+flutter_rust_bridge_codegen build-web
+# ... or any other standard Flutter ways
+flutter run --web-header=Cross-Origin-Opener-Policy=same-origin --web-header=Cross-Origin-Embedder-Policy=require-corp
+```
+

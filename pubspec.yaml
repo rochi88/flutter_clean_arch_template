@@ -35,9 +35,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
 
-  # custom packages
-  rust_helpers:
-    path: ./plugins/rust_helpers
+  ## custom packages
+  # rust_helpers:
+  #   path: ./plugins/rust_helpers
 
   #api calls
   dio: ^5.7.0
