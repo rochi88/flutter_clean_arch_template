@@ -38,6 +38,8 @@ New Flutter project with clean archetechture
 4. **Application Name**
    Next, you'll need to change your app's user-readable label - the `CFBundleName` and/or `CFBundleDisplayName` within the `Info.plist` (for iOS) and `android:label` field in your application node in `AndroidManifest.xml` (for Android).
 
+   Next, Serach `flutter_clean_pro_temp` and replace with your `<package_name>`
+
    I'm afraid this step is manual; it would be cool if `change_app_package_name` could do this for you.
 
    **NOTE**: You'll also need to change your package `name` and `description` within `pubspec.yaml`
