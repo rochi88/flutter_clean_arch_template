@@ -1,42 +1,32 @@
 // Package imports:
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // Project imports:
 import '../models/app_state.dart';
-import '../services/storage/secure_storage_service.dart';
+import 'shared_preferences_provider.dart';
 
 part 'app_state_provider.g.dart';
 
 @riverpod
 class AppStateNotifier extends _$AppStateNotifier {
+  SharedPreferences get _sharedPreferences =>
+      ref.watch(sharedPreferencesProvider).requireValue;
+
   @override
   AppState build() {
     return AppState(
-        token: SecureStorageService().readSecureData('token'),
-        isDarkModeEnabled: false,
-        isSynced: false,
-        dbUpdatedAt: null);
-  }
-
-  void toggleTheme() {
-    state = state.copyWith(isDarkModeEnabled: !state.isDarkModeEnabled);
+        dbSynced: _sharedPreferences.getBool('dbSynced')!,
+        dbSyncedAt: _sharedPreferences.getString('dbSyncedAt')!);
   }
 
   void toggleSync() {
-    state = state.copyWith(isSynced: !state.isSynced);
+    state = state.copyWith(dbSynced: !state.dbSynced);
+    _sharedPreferences.setBool('dbSynced', state.dbSynced);
   }
 
-  Future<void> setToken(String token) async {
-    await SecureStorageService().writeSecureData('token', token);
-    state = state.copyWith(token: Future.value(token));
-  }
-
-  Future<void> deleteToken() async {
-    await SecureStorageService().deleteSecureData('token');
-    state = state.copyWith(token: Future.value(null));
-  }
-
-  Future<void> setDbUpdatedAt(DateTime dbUpdatedAt) async {
-    state = state.copyWith(dbUpdatedAt: dbUpdatedAt);
+  Future<void> setDbSyncedAt(String? dbSyncedAt) async {
+    state = state.copyWith(dbSyncedAt: dbSyncedAt);
+    _sharedPreferences.setString('dbSyncedAt', state.dbSyncedAt!);
   }
 }

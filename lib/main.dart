@@ -20,58 +20,73 @@ import 'package:path_provider/path_provider.dart';
 // Project imports:
 import 'firebase_options.dart';
 import 'src/app.dart';
+import 'src/core/providers/http_client_provider.dart';
+import 'src/core/providers/shared_preferences_provider.dart';
 import 'src/core/services/notification/fcm_notification.dart';
 
-late String? tempPath;
+late String tempPath;
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await setupFlutterNotifications();
   showFlutterNotification(message);
-  // If you're going to use other Firebase services in the background, such as Firestore,
-  // make sure you call `initializeApp` before using other Firebase services.
   if (kDebugMode) {
     print('Handling a background message ${message.messageId}');
   }
 }
 
 Future<void> main() async {
-  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-  // Set the path to the temporary directory
-  if (!kIsWeb) {
-    tempPath = (await getTemporaryDirectory()).path;
-  }
+  await runZonedGuarded(() async {
+    final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+    await EasyLocalization.ensureInitialized();
 
-  // Retain native splash screen until Dart is ready
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+    // Retain native splash screen until Dart is ready
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  if (!(defaultTargetPlatform == TargetPlatform.linux)) {
-    await _initializeApp();
-  }
+    if (!kIsWeb) {
+      tempPath = (await getTemporaryDirectory()).path;
+    }
 
-  runZonedGuarded(
-      () => runApp(
-            ProviderScope(
-              child: EasyLocalization(
-                path: 'assets/translations',
-                supportedLocales: const [
-                  Locale('en'),
-                  Locale('bn'),
-                ],
-                fallbackLocale: const Locale('en'),
-                child: const MyApp(),
-              ),
-            ),
-          ), (error, stacktrace) {
-    FirebaseCrashlytics.instance.recordError(error, stacktrace, fatal: true);
+    if (Platform.isAndroid) {
+      await FlutterDisplayMode.setHighRefreshRate();
+    }
+
+    if (!Platform.isLinux) {
+      await _initializeApp();
+    }
+
+    final container = ProviderContainer();
+    // * Preload SharedPreferences before calling runApp,
+    // * app depends on it in order to load the themeMode
+    container.read(sharedPreferencesProvider);
+    container.read(httpClientProvider);
+
+    runApp(
+      UncontrolledProviderScope(
+        container: container,
+        child: EasyLocalization(
+          path: 'assets/translations',
+          supportedLocales: const [
+            Locale('en'),
+            Locale('bn'),
+          ],
+          fallbackLocale: const Locale('en'),
+          child: const MyApp(),
+        ),
+      ),
+    );
+
+    FlutterNativeSplash.remove();
+  }, (error, stacktrace) {
+    if (!(defaultTargetPlatform == TargetPlatform.linux)) {
+      FirebaseCrashlytics.instance.recordError(error, stacktrace, fatal: true);
+    }
     if (kDebugMode) {
       print('Error: $error');
       print('Stacktrace: $stacktrace');
     }
   });
-  FlutterNativeSplash.remove();
 }
 
 Future<void> _initializeApp() async {
@@ -97,9 +112,5 @@ Future<void> _initializeApp() async {
 
   if (!kIsWeb) {
     await setupFlutterNotifications();
-  }
-
-  if (Platform.isAndroid) {
-    await FlutterDisplayMode.setHighRefreshRate();
   }
 }

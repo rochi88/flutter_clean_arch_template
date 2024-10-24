@@ -1,3 +1,6 @@
+// Package imports:
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 String? validateEmail(String? value) {
   const pattern = r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'"
       r'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-'
@@ -11,4 +14,10 @@ String? validateEmail(String? value) {
   return value!.isNotEmpty && !regex.hasMatch(value)
       ? 'Enter a valid email address'
       : null;
+}
+
+Future<String?> getFcmToken() async {
+  FirebaseMessaging firebasemessage = FirebaseMessaging.instance;
+  String? deviceToken = await firebasemessage.getToken();
+  return (deviceToken == null) ? '' : deviceToken;
 }

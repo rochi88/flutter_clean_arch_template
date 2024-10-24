@@ -21,6 +21,8 @@ import 'package:path_provider/path_provider.dart';
 // Project imports:
 import 'firebase_options.dart';
 import 'src/app_dev.dart';
+import 'src/core/providers/http_client_provider.dart';
+import 'src/core/providers/shared_preferences_provider.dart';
 import 'src/core/services/notification/fcm_notification.dart';
 
 late String? tempPath;
@@ -38,45 +40,60 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 Future<void> main() async {
-  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-  // Set the path to the temporary directory
-  if (!kIsWeb) {
-    tempPath = (await getTemporaryDirectory()).path;
-  }
+  await runZonedGuarded(() async {
+    final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+    await EasyLocalization.ensureInitialized();
 
-  // Retain native splash screen until Dart is ready
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+    // Retain native splash screen until Dart is ready
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  if (!(defaultTargetPlatform == TargetPlatform.linux)) {
-    await _initializeApp();
-  }
+    if (!kIsWeb) {
+      tempPath = (await getTemporaryDirectory()).path;
+    }
 
-  runZonedGuarded(
-      () => runApp(
-            DevicePreview(
-                enabled: !kReleaseMode,
-                builder: (context) {
-                  return ProviderScope(
-                    child: EasyLocalization(
-                      path: 'assets/translations',
-                      supportedLocales: const [
-                        Locale('en'),
-                        Locale('bn'),
-                      ],
-                      fallbackLocale: const Locale('en'),
-                      child: const DevApp(),
-                    ),
-                  );
-                }),
-          ), (error, stacktrace) {
-    FirebaseCrashlytics.instance.recordError(error, stacktrace, fatal: true);
+    if (Platform.isAndroid) {
+      await FlutterDisplayMode.setHighRefreshRate();
+    }
+
+    if (!Platform.isLinux) {
+      await _initializeApp();
+    }
+
+    final container = ProviderContainer();
+    // * Preload SharedPreferences before calling runApp,
+    // * app depends on it in order to load the themeMode
+    container.read(sharedPreferencesProvider);
+    container.read(httpClientProvider);
+
+    runApp(
+      DevicePreview(
+          enabled: !kReleaseMode,
+          builder: (context) {
+            return UncontrolledProviderScope(
+              container: container,
+              child: EasyLocalization(
+                path: 'assets/translations',
+                supportedLocales: const [
+                  Locale('en'),
+                  Locale('bn'),
+                ],
+                fallbackLocale: const Locale('en'),
+                child: const DevApp(),
+              ),
+            );
+          }),
+    );
+
+    FlutterNativeSplash.remove();
+  }, (error, stacktrace) {
+    if (!(defaultTargetPlatform == TargetPlatform.linux)) {
+      FirebaseCrashlytics.instance.recordError(error, stacktrace, fatal: true);
+    }
     if (kDebugMode) {
       print('Error: $error');
       print('Stacktrace: $stacktrace');
     }
   });
-  FlutterNativeSplash.remove();
 }
 
 Future<void> _initializeApp() async {

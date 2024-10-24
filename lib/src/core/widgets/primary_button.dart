@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // Project imports:
 import '../../../src/core/constants/app_sizes.dart';
+import '../themes/app_colors.dart';
 
 /// Primary button based on [ElevatedButton].
 /// Useful for CTAs in the app.
@@ -22,6 +23,12 @@ class PrimaryButton extends StatelessWidget {
       height: Sizes.p48,
       child: ElevatedButton(
         onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.lightPrimary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(Sizes.p8),
+          ),
+        ),
         child: isLoading
             ? const CircularProgressIndicator()
             : Text(
@@ -30,7 +37,7 @@ class PrimaryButton extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge!
-                    .copyWith(color: Colors.white),
+                    .copyWith(color: AppColors.lightBodyTextColor),
               ),
       ),
     );

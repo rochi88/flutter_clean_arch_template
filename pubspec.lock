@@ -454,6 +454,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.10+2"
+  firebase_cached_image:
+    dependency: "direct main"
+    description:
+      name: firebase_cached_image
+      sha256: "03a7dc2e9be2b3d2e0dd4fa4016a5fe2c99ea7d163474f25a56295d51a36d7b0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.3"
   firebase_core:
     dependency: "direct main"
     description:
@@ -550,6 +558,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.6+12"
+  firebase_storage:
+    dependency: transitive
+    description:
+      name: firebase_storage
+      sha256: "04da94a710b0c08666de7dfa19812c9b5d404ea080a7a9d402ecb80705754122"
+      url: "https://pub.dev"
+    source: hosted
+    version: "12.3.4"
+  firebase_storage_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_storage_platform_interface
+      sha256: "462621bbdb5ab496518aa0f4785cb6db87763d5f1063aa228e1f65562937af1d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.1.31"
+  firebase_storage_web:
+    dependency: transitive
+    description:
+      name: firebase_storage_web
+      sha256: d9221c943c1341ee2cba51857ddb5916686994b16b181e9e9d2e0d5a9056f9b7
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.10.3"
   fixnum:
     dependency: transitive
     description:
@@ -1195,7 +1227,7 @@ packages:
     source: hosted
     version: "2.6.1"
   rxdart:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: rxdart
       sha256: "5c3004a4a8dbb94bd4bf5412a4def4acdaa12e12f269737a5751369e12d1a962"
@@ -1203,13 +1235,13 @@ packages:
     source: hosted
     version: "0.28.0"
   shared_preferences:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: shared_preferences
-      sha256: c272f9cabca5a81adc9b0894381e9c1def363e980f960fa903c604c471b22f68
+      sha256: "746e5369a43170c25816cc472ee016d3a66bc13fcf430c0bc41ad7b4b2922051"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   shared_preferences_android:
     dependency: transitive
     description:
@@ -1274,6 +1306,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  shimmer:
+    dependency: "direct main"
+    description:
+      name: shimmer
+      sha256: "5f88c883a22e9f9f299e5ba0e4f7e6054857224976a5d9f839d4ebdc94a14ac9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   sky_engine:
     dependency: transitive
     description: flutter

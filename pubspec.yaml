@@ -69,8 +69,8 @@ dependencies:
   go_router: ^14.3.0
 
   #state management
-  flutter_riverpod: ^2.6.0
-  riverpod_annotation: ^2.6.0
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
 
   #misc
   url_launcher: ^6.3.1
@@ -85,6 +85,10 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_svg: ^2.0.10+1
   device_preview: ^1.2.0
+  shared_preferences: ^2.3.2
+  rxdart: ^0.28.0
+  shimmer: ^3.0.0  
+  firebase_cached_image: ^0.6.1
 
 dev_dependencies:
   flutter_test:
@@ -98,8 +102,8 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   custom_lint:
 
-  riverpod_generator: ^2.6.0
-  riverpod_lint: ^2.4.0
+  riverpod_generator: ^2.6.1
+  riverpod_lint: ^2.6.1
   build_runner: ^2.4.13 # dart run build_runner watch --delete-conflicting-outputs
 
   change_app_package_name: ^1.4.0 # dart run change_app_package_name:main <com.new.package.name>

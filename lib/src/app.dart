@@ -9,10 +9,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import '../src/core/localization/string_hardcoded.dart';
-import '../src/core/providers/app_state_provider.dart';
-import '../src/routing/app_router.dart';
+import 'core/localization/string_hardcoded.dart';
+import 'core/providers/app_theme_mode_provider.dart';
 import 'core/themes/app_themes.dart';
+import 'routing/app_router.dart';
 
 bool get isIOS => foundation.defaultTargetPlatform == TargetPlatform.iOS;
 
@@ -22,7 +22,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
-    final appState = ref.watch(appStateNotifierProvider);
+    final themeMode = ref.watch(appThemeModeNotifierProvider);
 
     return isIOS
         ? ScreenUtilInit(
@@ -54,9 +54,7 @@ class MyApp extends ConsumerWidget {
                 debugShowCheckedModeBanner: false,
                 restorationScopeId: 'app',
                 onGenerateTitle: (BuildContext context) => 'Example'.hardcoded,
-                themeMode: appState.isDarkModeEnabled
-                    ? ThemeMode.dark
-                    : ThemeMode.light,
+                themeMode: themeMode,
                 theme: AppThemes.light(),
                 darkTheme: AppThemes.dark(),
               );

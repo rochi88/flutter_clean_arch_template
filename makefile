@@ -1,8 +1,8 @@
 .PHONY: all run_dev_web run_dev_mobile run_unit clean upgrade lint format build_dev_mobile help watch gen run_stg_mobile run_prd_mobile build_apk_dev build_apk_stg build_apk_prd build_bundle purge run_debug run_dev
 
-all_dev: lint format run_dev
-
 all_debug: lint format run_debug
+
+all_dev: lint format run_dev
 
 # Adding a help file: https://gist.github.com/prwhite/8168133#gistcomment-1313022
 help: ## This help dialog.
@@ -34,16 +34,17 @@ build: ## Build the files for changes
 	@echo "╠ Building the project..."
 	@dart pub run build_runner build --delete-conflicting-outputs
 
-
 gen: ## Generates the assets
 	@echo "╠ Generating the assets..."
 	@flutter pub get
 	@flutter packages pub run build_runner build
+	@dart run flutter_native_splash:create
+	@dart run flutter_launcher_icons:main
 
 format: ## Formats the code
 	@echo "╠ Formatting the code"
 	@dart format lib .
-	@flutter pub run import_sorter:main
+	@dart run import_sorter:main
 
 lint: ## Lints the code
 	@echo "╠ Verifying code..."
@@ -55,8 +56,8 @@ upgrade: clean ## Upgrades dependencies
 
 commit: format lint run_unit
 	@echo "╠ Committing..."
-	git add .
-	git commit
+	@git add .
+	@git commit
 
 run_dev_web: ## Runs the web application in dev
 	@echo "╠ Running the app"

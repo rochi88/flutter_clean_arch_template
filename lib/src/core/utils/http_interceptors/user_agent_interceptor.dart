@@ -8,6 +8,9 @@ import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
+// Project imports:
+import '../../../env.dart';
+
 class UserAgentInterceptor extends Interceptor {
   @override
   Future<dynamic> onRequest(
@@ -17,7 +20,7 @@ class UserAgentInterceptor extends Interceptor {
     if (!kIsWeb) {
       final packageInfo = await PackageInfo.fromPlatform();
       options.headers['User-Agent'] =
-          '${packageInfo.appName} - ${packageInfo.packageName}/${packageInfo.version}+${packageInfo.buildNumber} - Dart/${Platform.version} - OS: ${Platform.operatingSystem}/${Platform.operatingSystemVersion}';
+          '${packageInfo.appName} - ${packageInfo.packageName}/${packageInfo.version}+${packageInfo.buildNumber} - ApiVersion/${Env.apiVersion} - Dart/${Platform.version} - OS: ${Platform.operatingSystem}/${Platform.operatingSystemVersion}';
     }
     handler.next(options);
   }
