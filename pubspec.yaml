@@ -37,7 +37,7 @@ dependencies:
 
   ## custom packages
   # rust_helpers:
-  #   path: ./plugins/rust_helpers
+  #   path: ./packages/rust_helpers
 
   #api calls
   dio: ^5.7.0
