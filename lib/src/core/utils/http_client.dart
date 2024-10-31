@@ -13,7 +13,6 @@ import 'http_interceptors/user_agent_interceptor.dart';
 
 import 'package:native_dio_adapter/native_dio_adapter.dart'; // !!!! DO NOT USE THIS ON WEB BUILD !!!!
 
-
 class HttpClient with DioMixin implements Dio {
   HttpClient({BaseOptions? baseOptions}) {
     options = (baseOptions ?? BaseOptions()).copyWith(
