@@ -29,6 +29,10 @@ Below we’ve included a snippet of CSS that could help. It’s important to not
 |                                | **Pixel Size** | **Viewport** |
 | ------------------------------ | -------------- | ------------ |
 | **iPhone**                     |                |              |
+| iPhone 16 Pro Max              | 1320 x 2868    | 440 x 956    |
+| iPhone 16 Pro                  | 1206 x 2622    | 402 x 874    |
+| iPhone 16 Plus                 | 1290 x 2796    | 430 x 932    |
+| iPhone 16                      | 1179 x 2556    | 393 x 852    |
 | iPhone 15 Pro Max              | 1290 x 2796    | 430 x 932    |
 | iPhone 15 Pro                  | 1179 x 2556    | 393 x 852    |
 | iPhone 15 Plus                 | 1290 x 2796    | 430 x 932    |
@@ -77,6 +81,7 @@ Below we’ve included a snippet of CSS that could help. It’s important to not
 | Nexus 5X                | 1080 x 1920    | 412 x 732    |
 | Google Pixel 7 Pro      | 1440 x 3120    | 412 x 771    |
 | Google Pixel 4 XL       | 1440 x 869     | 412 x 869    |
+| Google Pixel 4a         | 1080 x 2340    | 393 x 851    |
 | Google Pixel 4          | 1080 x 2280    | 412 x 869    |
 | Google Pixel 3a XL      | 1080 x 2160    | 412 x 824    |
 | Google Pixel 3a         | 1080 x 2220    | 412 x 846    |

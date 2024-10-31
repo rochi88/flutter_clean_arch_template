@@ -1,6 +1,5 @@
 // Flutter imports:
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -12,9 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/localization/string_hardcoded.dart';
 import 'core/providers/app_theme_mode_provider.dart';
 import 'core/themes/app_themes.dart';
+import 'core/utils/target_platform.dart';
 import 'routing/app_router.dart';
-
-bool get isIOS => foundation.defaultTargetPlatform == TargetPlatform.iOS;
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
@@ -26,8 +24,8 @@ class MyApp extends ConsumerWidget {
 
     return isIOS
         ? ScreenUtilInit(
-            designSize: const Size(
-                393, 852), // viewport size of iPhone 14 Pro, iPhone 15
+            designSize:
+                const Size(393, 852), // viewport size of iPhone 15, iPhone 16
             minTextAdapt: true,
             splitScreenMode: true,
             builder: (_, child) {

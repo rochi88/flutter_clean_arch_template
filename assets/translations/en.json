@@ -8,6 +8,9 @@
     "name" : "Name",
     "sign_in" : "Sign In",
     "sign_up" : "Sign Up",
+    "settings" : "Settings",
+    "profile" : "Profile",
+    "logout" : "Logout",
   
     "bottom_nav_first": "Home",
     "bottom_nav_second": "Info",

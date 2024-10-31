@@ -1,6 +1,5 @@
 // Dart imports:
 import 'dart:async';
-import 'dart:io';
 
 // Flutter imports:
 import 'package:flutter/foundation.dart';
@@ -23,6 +22,7 @@ import 'src/app.dart';
 import 'src/core/providers/http_client_provider.dart';
 import 'src/core/providers/shared_preferences_provider.dart';
 import 'src/core/services/notification/fcm_notification.dart';
+import 'src/core/utils/target_platform.dart';
 
 late String tempPath;
 
@@ -48,11 +48,11 @@ Future<void> main() async {
       tempPath = (await getTemporaryDirectory()).path;
     }
 
-    if (Platform.isAndroid) {
+    if (isAndroid) {
       await FlutterDisplayMode.setHighRefreshRate();
     }
 
-    if (!Platform.isLinux) {
+    if (!isLinux) {
       await _initializeApp();
     }
 
@@ -79,7 +79,7 @@ Future<void> main() async {
 
     FlutterNativeSplash.remove();
   }, (error, stacktrace) {
-    if (!(defaultTargetPlatform == TargetPlatform.linux)) {
+    if (!isLinux || !kIsWeb) {
       FirebaseCrashlytics.instance.recordError(error, stacktrace, fatal: true);
     }
     if (kDebugMode) {
@@ -94,23 +94,24 @@ Future<void> _initializeApp() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  await FirebaseCrashlytics.instance
-      .setCrashlyticsCollectionEnabled(!kDebugMode);
   await FirebasePerformance.instance
       .setPerformanceCollectionEnabled(!kDebugMode);
 
-  await FirebaseMessaging.instance.requestPermission(
-    provisional: true,
-  );
-
-  await FirebaseMessaging.instance.setAutoInitEnabled(true);
-
-  FirebaseMessaging.onMessage.listen(showFlutterNotification);
-
-  // Set the background messaging handler early on, as a named top-level function
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
   if (!kIsWeb) {
-    await setupFlutterNotifications();
+    await FirebaseCrashlytics.instance
+        .setCrashlyticsCollectionEnabled(!kDebugMode);
+
+    await FirebaseMessaging.instance.requestPermission(
+      provisional: true,
+    );
+
+    await FirebaseMessaging.instance.setAutoInitEnabled(true);
+
+    FirebaseMessaging.onMessage.listen(showFlutterNotification);
+
+    // Set the background messaging handler early on, as a named top-level function
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+    // await setupFlutterNotifications();
   }
 }

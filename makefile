@@ -59,6 +59,12 @@ commit: format lint run_unit
 	@git add .
 	@git commit
 
+run_debug:
+	@flutter run --debug
+
+run_dev:
+	@flutter run -d linux -t lib/main_dev.dart
+
 run_dev_web: ## Runs the web application in dev
 	@echo "╠ Running the app"
 	@flutter run -d chrome --dart-define=ENVIRONMENT=dev
@@ -99,9 +105,3 @@ purge: ## Purges the Flutter
 	@pod deintegrate
 	@flutter clean
 	@flutter pub get
-
-run_debug:
-	@flutter run --debug
-
-run_dev:
-	@flutter run -d linux -t lib/main_dev.dart

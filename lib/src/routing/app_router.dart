@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -18,8 +19,10 @@ enum AppRoute { home }
 
 @Riverpod(keepAlive: true)
 GoRouter appRouter(Ref ref) {
+  final routerKey = GlobalKey<NavigatorState>(debugLabel: 'routerKey');
   final authRepository = ref.watch(authControllerProvider);
   return GoRouter(
+    navigatorKey: routerKey,
     initialLocation: '/',
     debugLogDiagnostics: kDebugMode,
     redirect: (context, state) {
@@ -41,7 +44,7 @@ GoRouter appRouter(Ref ref) {
       GoRoute(
         path: '/',
         name: AppRoute.home.name,
-        builder: (context, state) => const HomeScreen(),
+        builder: (context, state) => HomeScreen(),
       ),
     ],
     observers: (!kDebugMode)
