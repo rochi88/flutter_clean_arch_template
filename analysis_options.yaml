@@ -19,9 +19,14 @@ analyzer:
   errors:
     missing_required_param: error
     missing_return: error
+    record_literal_one_positional_no_trailing_comma: error
+    collection_methods_unrelated_type: warning
+    unrelated_type_equality_checks: warning
     invalid_assignment: warning
+    parameter_assignments: warning
     dead_code: info
     prefer_single_quotes: info
+    todo: info
   exclude:
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart

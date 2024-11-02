@@ -103,22 +103,26 @@ android {
     }
 
     // flavorDimensions "default"
-    // productFlavors { 
-    //     production {
+
+    // productFlavors {   
+    //     development {
     //         dimension "default"
-    //         applicationIdSuffix ""
-    //         manifestPlaceholders = [appName: "App"]
+    //         applicationIdSuffix ".dev"
+    //         versionNameSuffix "-dev"
+    //         manifestPlaceholders = [appName: "[DEV] App"]
     //     }
     //     staging {
     //         dimension "default"
     //         applicationIdSuffix ".stg"
+    //         versionNameSuffix "-stg"
     //         manifestPlaceholders = [appName: "[STG] App"]
-    //     }        
-    //     development {
+    //     } 
+    //     production {
     //         dimension "default"
-    //         applicationIdSuffix ".dev"
-    //         manifestPlaceholders = [appName: "[DEV] App"]
-    //     }
+    //         // applicationIdSuffix ""
+    //         // versionNameSuffix ""
+    //         manifestPlaceholders = [appName: "App"]
+    //     } 
     // }
 }
 
