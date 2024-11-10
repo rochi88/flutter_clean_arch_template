@@ -6,8 +6,8 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import '../../routing/app_router.dart';
-import '../constants/app_sizes.dart';
 import '../localization/string_hardcoded.dart';
+import '../themes/app_sizes.dart';
 import 'primary_button.dart';
 
 /// Placeholder widget showing a message and CTA to go back to the home screen.

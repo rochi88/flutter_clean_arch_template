@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../../../src/core/constants/app_sizes.dart';
 import '../themes/app_colors.dart';
+import '../themes/app_sizes.dart';
 
 /// Primary button based on [ElevatedButton].
 /// Useful for CTAs in the app.
