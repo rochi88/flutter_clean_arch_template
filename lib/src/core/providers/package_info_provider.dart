@@ -5,7 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'package_info_provider.g.dart';
 
-@Riverpod(keepAlive: true)
+@riverpod
 FutureOr<PackageInfo> packageInfo(Ref ref) {
   return PackageInfo.fromPlatform();
 }
