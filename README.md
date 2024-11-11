@@ -236,13 +236,12 @@ following code:
 </manifest>
 ```
 
-#### Define and use scripts from your `pubspec.yaml` file
-##### Run Pubspec Script (RPS)
-1. Install this package.
+## Define and use scripts from your `pubspec.yaml` file
+#### 1. Install this package.
 ```sh
 dart pub global activate rps
 ```
-2. Define script inside the pubspec.yaml
+#### 2. Define script inside the pubspec.yaml
 ```
 name: my_great_app
 version: 1.0.0
@@ -266,7 +265,7 @@ scripts:
 dependencies:
    path: ^1.7.0
 ```
-3. Use your custom command.
+#### 3. Use your custom command.
 Like this gen command that we defined in the previous step:
 
 ```sh
