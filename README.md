@@ -150,13 +150,6 @@ cd android
 | Application  | Service                              |
 | Presentation | Widget, Provider (State), Controller |
 
-
-```mermaid
-flowchart LR;
-    A[Presentation]<-->B[Application];
-    B[Application]<-->C[Domain];
-    B[Application]<-->D[Data];
-```
 ```mermaid
 flowchart TD
     VM[View Model]-->U(Use Case)
@@ -283,12 +276,11 @@ This repository uses the following pub packages:
 
 | Package                                                                     | Version | Usage                                          |
 |-----------------------------------------------------------------------------|---------|------------------------------------------------|
-| [Flutter Riverpod](https://pub.dev/packages/flutter_riverpod)               | ^2.4.9  | State management*                              |
-| [Flutter Lints](https://pub.dev/packages/flutter_lints)                     | ^3.0.1  | Stricter linting rules                         |
-| [Path Provider](https://pub.dev/packages/path_provider)                     | ^2.1.2  | Get the save path for Hive                     |
+| [Flutter Riverpod](https://pub.dev/packages/flutter_riverpod)               | ^2.6.1  | State management*                              |
+| [Flutter Lints](https://pub.dev/packages/flutter_lints)                     | ^5.0.0  | Stricter linting rules                         |
+| [Path Provider](https://pub.dev/packages/path_provider)                     | ^2.1.4  | Get the save path for Hive                     |
 | [Flutter Displaymode](https://pub.dev/packages/flutter_displaymode)         | ^0.6.0  | Support high refresh rate displays             |
-| [Easy Localization](https://pub.dev/packages/easy_localization)             | ^3.0.3  | Makes localization easy                        |
-| [Isar](https://pub.dev/packages/isar)                                       | ^3.1.0  | Platform independent storage.                  |
+| [Easy Localization](https://pub.dev/packages/easy_localization)             | ^3.0.7  | Makes localization easy                        |
 | [Url Launcher](https://pub.dev/packages/url_launcher)                       | ^6.2.4  | Open urls in Browser                           |
 
 
@@ -296,9 +288,6 @@ This repository uses the following pub packages:
 
 * [change_app_package_name](https://pub.dev/packages/change_app_package_name) - Changes app package name with a single command. It makes the process very easy and fast.
 * [dio](https://pub.dev/packages/dio) - The best HTTP Client for Flutter IMO. Reusable interceptors, amirite?
-* [dio_http_cache](https://pub.dev/packages/dio_http_cache) - Dio interceptor to cache requests. It intercepts requests to
-  respond with cached data or intercepts new remote responses to be cached. Very configurable.
-* [dio_log](https://pub.dev/packages/dio_log) - It's a Dio Interceptor that presents your request & response logs within your app's UI
 * [envied](https://pub.dev/packages/envied) - Load configuration from a `.env` file.
 * [firebase_analytics](https://pub.dev/packages/firebase_analytics) - Flutter plugin for Google Analytics for Firebase, an app measurement solution that provides insight on app usage and user engagement on Android and iOS.
 * [firebase_crashlytics](https://pub.dev/packages/firebase_crashlytics) - Flutter plugin for Firebase Crashlytics. It reports uncaught errors to the Firebase console.
@@ -306,7 +295,5 @@ This repository uses the following pub packages:
 * [firebase_performance_dio](https://pub.dev/packages/firebase_performance_dio) - Dio's Interceptor implementation that sends HTTP request metric data to Firebase.
 * [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) - A command-line tool that simplifies the task of updating your Flutter app's launcher icon.
 * [flutter_native_splash](https://pub.dev/packages/flutter_native_splash) - Automatically generates native code for adding splash screens in Android and iOS. Customize with a specific platform, background color, and splash image.
-* [freezed](https://pub.dev/packages/freezed) - Simple yet powerful code generator for immutable classes with all the good stuff like unions/pattern-matching/copy etc. Made by [Remi Rousselet](https://github.com/rrousselGit), the creator & maintainer of Provider. Can work with [json_serializable](https://pub.dev/packages/json_serializable) for all your `fromJson()` and `toJson()` needs.
 * [go_router](https://pub.dev/packages/go_router) - This package builds on top of the Flutter framework's Router API and provides convenient URL-based APIs to navigate between different screens.
-* [screenshots](https://pub.dev/packages/screenshots) - Screenshots is a standalone command line utility and package for capturing screenshot images for Flutter.
 * [pretty_dio_logger](https://pub.dev/packages/pretty_dio_logger) - Dio interceptor that prettily prints to console HTTP requests and responses going through Dio
