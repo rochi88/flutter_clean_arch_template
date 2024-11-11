@@ -157,7 +157,27 @@ flowchart LR;
     B[Application]<-->C[Domain];
     B[Application]<-->D[Data];
 ```
-
+```mermaid
+flowchart TD
+    VM[View Model]-->U(Use Case)
+    MP[Mapper]-->MD[Model]
+    subgraph Presentation
+    V[View]-->VM(View Model)
+    W[Widgets]-->V[View]
+    end
+    subgraph Domain
+    UI(Use Case Impl)-->U[Use Case]
+    U[Use Case]-->MD[Model]-->R[Repository]
+    UI(Use Case Impl)-->R[Repository]
+    end
+    subgraph Data
+    RI[Repository Impl]-->MP[Mapper]
+    RI[Repository Impl]-->R[Repository]
+    E(Entity)-->D[Database]
+    DI[Database Impl]-->D[Database]
+    RI[Repository Impl]-->E(Entity)
+    end
+```
 ## Removing unwanted packages
 
 If a package is not listed, then removing it from [pubspec.yaml](./pubspec.yaml) as well as all
@@ -215,6 +235,48 @@ following code:
 
 </manifest>
 ```
+
+#### Define and use scripts from your `pubspec.yaml` file
+##### Run Pubspec Script (RPS)
+1. Install this package.
+```sh
+dart pub global activate rps
+```
+2. Define script inside the pubspec.yaml
+```
+name: my_great_app
+version: 1.0.0
+
+scripts:
+   # run is a default script. To use it, simply type
+   # in the command line: "rps" - that's all!
+   run: "flutter run -t lib/main_development.dart --flavor development"
+      # you can define more commands like this: "rps gen"
+      gen: "flutter pub run build_runner watch --delete-conflicting-outputs"
+      # and even nest them!
+      build:
+      android:
+      # rps build android apk
+      apk: "flutter build --release apk --flavor production"
+      # rps build android appbundle
+      appbundle: "flutter build --release appbundle --flavor production"
+      # and so on...
+
+# the rest of your pubspec file...
+dependencies:
+   path: ^1.7.0
+```
+3. Use your custom command.
+Like this gen command that we defined in the previous step:
+
+```sh
+rps gen
+```
+instead of 
+```sh
+flutter pub run build_runner watch --delete-conflicting-outputs
+```
+
 
 ## Packages used
 
