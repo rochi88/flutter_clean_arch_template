@@ -45,9 +45,8 @@ Future<void> main() async {
     await EasyLocalization.ensureInitialized();
 
     // Retain native splash screen until Dart is ready
-    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
     if (!kIsWeb) {
+      FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
       tempPath = (await getTemporaryDirectory()).path;
     }
 
@@ -84,7 +83,9 @@ Future<void> main() async {
           }),
     );
 
-    FlutterNativeSplash.remove();
+    if (!kIsWeb) {
+      FlutterNativeSplash.remove();
+    }
   }, (error, stacktrace) {
     if (!isLinux || !kIsWeb) {
       FirebaseCrashlytics.instance.recordError(error, stacktrace, fatal: true);
