@@ -76,7 +76,7 @@ dependencies:
   url_launcher: ^6.3.1
   path_provider: ^2.1.4
   flutter_native_splash: ^2.4.2 # dart run flutter_native_splash:create
-  envied: ^0.5.4
+  envied: ^1.0.0
   package_info_plus: ^8.1.0
   flutter_local_notifications: ^17.2.4
   flutter_secure_storage: ^9.2.2
@@ -101,7 +101,7 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   custom_lint:
 
-  riverpod_generator: ^2.6.1
+  riverpod_generator: ^2.6.3
   riverpod_lint: ^2.6.3
   build_runner: ^2.4.13 # dart run build_runner watch --delete-conflicting-outputs
 
