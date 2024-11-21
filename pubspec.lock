@@ -410,10 +410,10 @@ packages:
     dependency: "direct main"
     description:
       name: envied
-      sha256: bbff9c76120e4dc5e2e36a46690cf0a26feb65e7765633f4e8d916bcd173a450
+      sha256: "129a0dbf32b90344fa2e9d6943569fdec8f17904e66161e0a1f09ee3416508ae"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.4+1"
+    version: "1.0.0"
   envied_generator:
     dependency: "direct dev"
     description:
@@ -458,26 +458,26 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_analytics
-      sha256: "2c4e7b548d41b46e8aa08bc3bd1163146be7e6d48f678f2e6dd3114994e42458"
+      sha256: "8be7c45091f01cc15130edf8201ed4f4b7b022a38424ed9aac6b9a6d7c45bb09"
       url: "https://pub.dev"
     source: hosted
-    version: "11.3.3"
+    version: "11.3.5"
   firebase_analytics_platform_interface:
     dependency: transitive
     description:
       name: firebase_analytics_platform_interface
-      sha256: c259ae890c7d4c5d1675d35936be0b1fcd587fce9645948982cd87ad08df6222
+      sha256: "111e288dd332ce13e1ec96b54f5dca0601fe6e75bc251f74fd6f70096f3fbf09"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.5"
+    version: "4.2.7"
   firebase_analytics_web:
     dependency: transitive
     description:
       name: firebase_analytics_web
-      sha256: "5988d1fd022e55515c2a14811c9b5104c32acde115874a9a69ff7c77c4c05cd9"
+      sha256: "7c3c80b4e223565ddbda3eaacc42712ba6de53410f8ae18738c807aa8af6b910"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.10+2"
+    version: "0.5.10+4"
   firebase_cached_image:
     dependency: "direct main"
     description:
