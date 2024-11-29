@@ -108,7 +108,7 @@ dev_dependencies:
   change_app_package_name: ^1.4.0 # dart run change_app_package_name:main <com.new.package.name>
   flutter_launcher_icons: ^0.14.1 # dart run flutter_launcher_icons:main
   envied_generator: ^1.0.0
-  json_serializable: ^6.8.0
+  json_serializable: ^6.9.0
   import_sorter: ^4.6.0
 
 flutter_launcher_icons:
