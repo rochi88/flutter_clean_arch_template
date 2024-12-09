@@ -378,10 +378,10 @@ packages:
     dependency: "direct main"
     description:
       name: dio_cache_interceptor_hive_store
-      sha256: "449b36541216cb20543228081125ad2995eb9712ec35bd030d85663ea1761895"
+      sha256: "127cda24a485f5b6469172edd8b81fac819147318bedd654be167527c498bf55"
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.2"
+    version: "4.0.0"
   dio_web_adapter:
     dependency: transitive
     description:
@@ -818,14 +818,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
-  hive:
+  hive_ce:
     dependency: transitive
     description:
-      name: hive
-      sha256: "8dcf6db979d7933da8217edcec84e9df1bdb4e4edc7fc77dbd5aa74356d6d941"
+      name: hive_ce
+      sha256: "2d66fa89a3e33e6d95edcf6c75409cf8f6442ab46229c9baf423af479f532e99"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.3"
+    version: "2.8.0+2"
   hotreloader:
     dependency: transitive
     description:
