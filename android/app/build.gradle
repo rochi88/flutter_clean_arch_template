@@ -35,9 +35,12 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace = "com.example.flutter_clean_pro_temp"
+    namespace = "com.example.flutter_clean_arch_template"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+
+    // ndkVersion = flutter.ndkVersion
+    // Had to hardcode ndkVersion to fix bug with flutter. Should be changed back to flutter.ndkVersion when fixed
+    ndkVersion "25.1.8937393"
 
     compileOptions {
         // Sets Java compatibility to Java 8
@@ -51,10 +54,14 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.flutter_clean_pro_temp"
+        applicationId = "com.example.flutter_clean_arch_template"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdk = flutter.minSdkVersion
+
+        // minSdk = flutter.minSdkVersion
+        // firebase requires minSdkVersion to be at least 23
+        minSdk = 23
+        
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

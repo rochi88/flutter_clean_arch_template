@@ -20,10 +20,11 @@ import 'package:path_provider/path_provider.dart';
 // Project imports:
 import 'firebase_options.dart';
 import 'src/app_dev.dart';
-import 'src/core/providers/http_client_provider.dart';
-import 'src/core/providers/shared_preferences_provider.dart';
-import 'src/core/services/notification/fcm_notification.dart';
-import 'src/core/utils/target_platform.dart';
+import 'src/common/providers/http_client_provider.dart';
+import 'src/common/providers/package_info_provider.dart';
+import 'src/common/providers/shared_preferences_provider.dart';
+import 'src/common/services/notification/fcm_notification.dart';
+import 'src/common/utils/target_platform.dart';
 
 late String tempPath;
 
@@ -61,7 +62,8 @@ Future<void> main() async {
     final container = ProviderContainer();
     // * Preload SharedPreferences before calling runApp,
     // * app depends on it in order to load the themeMode
-    container.read(sharedPreferencesProvider);
+    container.read(sharedPreferencesProvider.future);
+    container.read(packageInfoProvider.future);
     container.read(httpClientProvider);
 
     runApp(

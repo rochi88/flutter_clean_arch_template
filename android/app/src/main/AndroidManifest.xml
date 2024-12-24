@@ -15,7 +15,7 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>   
 
     <application
-        android:label="flutter_clean_pro_temp"
+        android:label="flutter_clean_arch_template"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="true"

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../core/localization/string_hardcoded.dart';
-import '../core/widgets/empty_placeholder_widget.dart';
+import '../common/localization/string_hardcoded.dart';
+import '../common/widgets/empty_placeholder_widget.dart';
 
 /// Simple not found screen used for 404 errors (page not found on web)
 class NotFoundScreen extends StatelessWidget {

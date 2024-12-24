@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 // Package imports:
 import 'package:dio/dio.dart';
 import 'package:firebase_performance_dio/firebase_performance_dio.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 // Project imports:
@@ -14,7 +15,7 @@ import 'http_interceptors/user_agent_interceptor.dart';
 // import 'package:native_dio_adapter/native_dio_adapter.dart'; // !!!! DO NOT USE THIS ON WEB BUILD !!!!
 
 class HttpClient with DioMixin implements Dio {
-  HttpClient({BaseOptions? baseOptions}) {
+  HttpClient({BaseOptions? baseOptions, PackageInfo? packageInfo}) {
     options = (baseOptions ?? BaseOptions()).copyWith(
       validateStatus: (int? status) {
         return status != null && status >= 200 && status < 400;
@@ -33,7 +34,7 @@ class HttpClient with DioMixin implements Dio {
     interceptors.addAll([
       ErrorInterceptor(),
       AuthInterceptor(),
-      UserAgentInterceptor(),
+      UserAgentInterceptor(packageInfo),
       DioFirebasePerformanceInterceptor(),
     ]);
 

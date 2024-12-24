@@ -12,15 +12,18 @@ import 'package:package_info_plus/package_info_plus.dart';
 import '../../../env.dart';
 
 class UserAgentInterceptor extends Interceptor {
+  UserAgentInterceptor(this.packageInfo);
+
+  final PackageInfo? packageInfo;
+
   @override
   Future<dynamic> onRequest(
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
     if (!kIsWeb) {
-      final packageInfo = await PackageInfo.fromPlatform();
       options.headers['User-Agent'] =
-          '${packageInfo.appName} - ${packageInfo.packageName}/${packageInfo.version}+${packageInfo.buildNumber} - ApiVersion/${Env.apiVersion} - Dart/${Platform.version} - OS: ${Platform.operatingSystem}/${Platform.operatingSystemVersion}';
+          '${packageInfo?.appName} - ${packageInfo?.packageName}/${packageInfo?.version}+${packageInfo?.buildNumber} - ApiVersion/${Env.apiVersion} - Dart/${Platform.version} - OS: ${Platform.operatingSystem}/${Platform.operatingSystemVersion}';
     }
     handler.next(options);
   }

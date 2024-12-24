@@ -9,10 +9,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'core/localization/string_hardcoded.dart';
-import 'core/providers/app_theme_mode_provider.dart';
-import 'core/themes/app_themes.dart';
-import 'core/utils/target_platform.dart';
+import 'common/localization/string_hardcoded.dart';
+import 'common/providers/app_state_provider.dart';
+import 'common/themes/app_themes.dart';
+import 'common/utils/target_platform.dart';
 import 'routing/app_router.dart';
 
 class DevApp extends ConsumerWidget {
@@ -21,7 +21,7 @@ class DevApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
-    final themeMode = ref.watch(appThemeModeNotifierProvider);
+    final appState = ref.watch(appStateNotifierProvider);
 
     return isIOS
         ? ScreenUtilInit(
@@ -36,7 +36,9 @@ class DevApp extends ConsumerWidget {
                 supportedLocales: context.supportedLocales,
                 locale: context.locale,
                 debugShowCheckedModeBanner: false,
-                theme: AppThemes.idark(),
+                theme: appState.themeMode == ThemeMode.dark
+                    ? AppThemes.idark()
+                    : AppThemes.ilight(),
               );
             })
         : ScreenUtilInit(
@@ -54,7 +56,7 @@ class DevApp extends ConsumerWidget {
                 debugShowCheckedModeBanner: false,
                 restorationScopeId: 'app',
                 onGenerateTitle: (BuildContext context) => 'Example'.hardcoded,
-                themeMode: themeMode,
+                themeMode: appState.themeMode,
                 theme: AppThemes.light(),
                 darkTheme: AppThemes.dark(),
               );

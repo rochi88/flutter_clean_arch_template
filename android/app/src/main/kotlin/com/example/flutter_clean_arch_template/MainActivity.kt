@@ -1,4 +1,4 @@
-package com.example.flutter_clean_pro_temp
+package com.example.flutter_clean_arch_template
 
 import io.flutter.embedding.android.FlutterActivity
 

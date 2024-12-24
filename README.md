@@ -1,4 +1,4 @@
-# flutter_clean_pro_temp
+# flutter_clean_arch_template
 
 New Flutter project with clean archetechture
 
@@ -33,12 +33,12 @@ New Flutter project with clean archetechture
    * This step uses [change_app_package_name](https://pub.dev/packages/change_app_package_name), go give the package some love.
 
    `for macos`
-   find `com.example.flutterCleanProTemp` and replace with `<package_name>`
+   find `com.example.flutterCleanArchTemplate` and replace with `<package_name>`
 
 4. **Application Name**
    Next, you'll need to change your app's user-readable label - the `CFBundleName` and/or `CFBundleDisplayName` within the `Info.plist` (for iOS) and `android:label` field in your application node in `AndroidManifest.xml` (for Android).
 
-   Next, Serach `flutter_clean_pro_temp` and replace with your `<package_name>`
+   Next, Serach `flutter_clean_arch_template` and replace with your `<package_name>`
 
    I'm afraid this step is manual; it would be cool if `change_app_package_name` could do this for you.
 

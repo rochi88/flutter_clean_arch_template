@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
+import '../common/observer/app_navigator_observer.dart';
 import '../features/auth/presentation/providers/auth_controller_provider.dart';
 import '../features/home/presentation/views/home_screen.dart';
 import 'go_router_refresh_stream.dart';
@@ -47,8 +48,8 @@ GoRouter appRouter(Ref ref) {
         builder: (context, state) => HomeScreen(),
       ),
     ],
-    observers: (!kDebugMode)
-        ? [FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance)]
-        : [],
+    observers: (kDebugMode)
+        ? [AppNavigatorObserver()]
+        : [FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance)],
   );
 }
