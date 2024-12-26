@@ -2,6 +2,7 @@
 import '../../../common/helpers/app_helpers.dart';
 import '../../../common/helpers/delay.dart';
 import '../../../common/services/storage/secure_storage_service.dart';
+import '../../../common/utils/device_info.dart';
 import '../../../common/utils/http_client.dart';
 import '../../../common/utils/in_memory_store.dart';
 import '../domain/models/app_user.dart';
@@ -18,15 +19,17 @@ class AuthRepository {
 
   void dispose() => _authState.close();
 
-  Future<void> signIn(String phone, String password) async {
+  Future<String?> signIn(String phone, String password) async {
     await delay(addDelay);
 
     String? fcmToken = await getFcmToken();
+    Map<String, dynamic> deviceInfo = await DeviceInfo().initPlatformState();
 
     final response = await httpClient.post('/auth/login', data: {
       'phone': phone,
       'password': password,
-      'device_name': 'userapp',
+      'device_name': 'parentapp',
+      'device_info': deviceInfo,
       'fcm_token': fcmToken
     });
 
@@ -34,6 +37,8 @@ class AuthRepository {
       _authState.value = AppUser.fromJson(response.data!['user']);
       secureStorageService.replaceSecureData('token', response.data['token']);
     }
+
+    return response.data['message'];
   }
 
   Future<void> signOut() async {
@@ -41,9 +46,9 @@ class AuthRepository {
     _authState.value = null;
   }
 
-  Future<void> getUser() {
-    return httpClient.get('/auth/user').then((response) {
-      _authState.value = AppUser.fromJson(response.data!['user']);
-    });
+  Future<AppUser?> getUser() async {
+    final response = await httpClient.get('/auth/user');
+    _authState.value = AppUser.fromJson(response.data!['user']);
+    return AppUser.fromJson(response.data!['user']);
   }
 }

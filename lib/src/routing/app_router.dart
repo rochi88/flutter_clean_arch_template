@@ -10,6 +10,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
 import '../common/observer/app_navigator_observer.dart';
+import '../common/providers/app_state_provider.dart';
 import '../features/auth/presentation/providers/auth_controller_provider.dart';
 import '../features/home/presentation/views/home_screen.dart';
 import 'go_router_refresh_stream.dart';
@@ -21,22 +22,22 @@ enum AppRoute { home }
 @Riverpod(keepAlive: true)
 GoRouter appRouter(Ref ref) {
   final routerKey = GlobalKey<NavigatorState>(debugLabel: 'routerKey');
+
   final authRepository = ref.watch(authControllerProvider);
+  final appState = ref.watch(appStateNotifierProvider);
   return GoRouter(
     navigatorKey: routerKey,
-    initialLocation: '/',
+    initialLocation: appState.onboardingCompleted ? '/login' : '/onboarding',
     debugLogDiagnostics: kDebugMode,
     redirect: (context, state) {
       final isLoggedIn = authRepository.currentUser != null;
       final path = state.uri.path;
       if (isLoggedIn) {
-        if (path == '/signin') {
-          return '/catalogue';
+        if (path == '/login') {
+          return '/home';
         }
       } else {
-        if (path == '/account' || path == '/orders') {
-          return '/catalogue';
-        }
+        return appState.onboardingCompleted ? '/login' : '/onboarding';
       }
       return null;
     },
