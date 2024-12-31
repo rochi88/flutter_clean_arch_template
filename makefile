@@ -28,11 +28,11 @@ clean: ## Cleans the environment
 
 watch: ## Watches the files for changes
 	@echo "╠ Watching the project..."
-	@dart pub run build_runner watch --delete-conflicting-outputs
+	@dart run build_runner watch --delete-conflicting-outputs
 
 build: ## Build the files for changes
 	@echo "╠ Building the project..."
-	@dart pub run build_runner build --delete-conflicting-outputs
+	@dart run build_runner build --delete-conflicting-outputs
 
 gen: ## Generates the assets
 	@echo "╠ Generating the assets..."
