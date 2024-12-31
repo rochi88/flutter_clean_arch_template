@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // Project imports:
 import '../models/app_state.dart';
+import 'package_info_provider.dart';
 import 'shared_preferences_provider.dart';
 
 part 'app_state_provider.g.dart';
@@ -25,11 +26,14 @@ class AppStateNotifier extends _$AppStateNotifier {
       'system' || _ => ThemeMode.system,
       // _ => ThemeMode.light
     };
+    final appVersion = ref.watch(packageInfoProvider).value!.version;
+
     return AppState(
         themeMode: themeMode,
         onboardingCompleted:
             _sharedPreferences.getBool('onboardingCompleted') ?? false,
         languageCode: _sharedPreferences.getString('languageCode') ?? 'en',
+        appVersion: appVersion,
         dbSynced: _sharedPreferences.getBool('dbSynced') ?? false,
         dbSyncedAt: _sharedPreferences.getString('dbSyncedAt') ?? '');
   }

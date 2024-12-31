@@ -6,6 +6,7 @@ class AppState {
   Future<String?>? jwtToken;
   bool onboardingCompleted;
   String languageCode;
+  String appVersion;
   bool dbSynced;
   String? dbSyncedAt;
 
@@ -14,6 +15,7 @@ class AppState {
       this.jwtToken,
       this.onboardingCompleted = false,
       this.languageCode = 'en',
+      this.appVersion = '',
       this.dbSynced = false,
       this.dbSyncedAt});
 
@@ -22,6 +24,7 @@ class AppState {
     Future<String>? jwtToken,
     bool? onboardingCompleted,
     String? languageCode,
+    String? appVersion,
     bool? dbSynced,
     String? dbSyncedAt,
   }) {
