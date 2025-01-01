@@ -24,7 +24,6 @@ class AppStateNotifier extends _$AppStateNotifier {
       'light' => ThemeMode.light,
       'dark' => ThemeMode.dark,
       'system' || _ => ThemeMode.system,
-      // _ => ThemeMode.light
     };
     final appVersion = ref.watch(packageInfoProvider).value!.version;
 
