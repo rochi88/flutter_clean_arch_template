@@ -11,7 +11,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'http_interceptors/auth_interceptor.dart';
 import 'http_interceptors/error_interceptor.dart';
 import 'http_interceptors/user_agent_interceptor.dart';
-
+import 'package:dio_web_adapter/dio_web_adapter.dart';
 // import 'package:native_dio_adapter/native_dio_adapter.dart'; // !!!! DO NOT USE THIS ON WEB BUILD !!!!
 
 class HttpClient with DioMixin implements Dio {
@@ -30,6 +30,8 @@ class HttpClient with DioMixin implements Dio {
     //         ..allowsConstrainedNetworkAccess = false
     //         ..allowsExpensiveNetworkAccess = false,
     // );
+
+    httpClientAdapter = BrowserHttpClientAdapter(withCredentials: true);
 
     interceptors.addAll([
       ErrorInterceptor(),
