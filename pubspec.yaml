@@ -80,7 +80,7 @@ dependencies:
   envied: ^1.0.0
   package_info_plus: ^8.1.2
   flutter_local_notifications: ^18.0.1
-  flutter_secure_storage: ^9.2.3
+  flutter_secure_storage: ^9.2.4
   flutter_displaymode: ^0.6.0
   flutter_screenutil: ^5.9.3
   json_annotation: ^4.9.0
