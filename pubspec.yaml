@@ -89,7 +89,7 @@ dependencies:
   rxdart: ^0.28.0
   firebase_cached_image: ^0.6.1
   connectivity_plus: ^6.1.2
-  device_info_plus: ^11.2.0
+  device_info_plus: ^11.2.1
 
 dev_dependencies:
   flutter_test:
