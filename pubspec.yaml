@@ -88,7 +88,7 @@ dependencies:
   shared_preferences: ^2.3.5
   rxdart: ^0.28.0
   firebase_cached_image: ^0.6.1
-  connectivity_plus: ^6.1.1
+  connectivity_plus: ^6.1.2
   device_info_plus: ^11.2.0
 
 dev_dependencies:
