@@ -14,6 +14,7 @@ import '../common/providers/app_state_provider.dart';
 import '../features/auth/presentation/providers/auth_controller_provider.dart';
 import '../features/home/presentation/views/home_screen.dart';
 import 'go_router_refresh_stream.dart';
+import 'not_found_screen.dart';
 
 part 'app_router.g.dart';
 
@@ -49,6 +50,7 @@ GoRouter appRouter(Ref ref) {
         builder: (context, state) => HomeScreen(),
       ),
     ],
+    errorBuilder: (context, state) => const NotFoundScreen(),
     observers: (kDebugMode)
         ? [AppNavigatorObserver()]
         : [FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance)],

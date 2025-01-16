@@ -90,6 +90,7 @@ dependencies:
   firebase_cached_image: ^0.6.1
   connectivity_plus: ^6.1.2
   device_info_plus: ^11.2.1
+  timezone: ^0.10.0
 
 dev_dependencies:
   flutter_test:
@@ -121,6 +122,10 @@ flutter_launcher_icons:
 flutter_native_splash:
   color: "FFFFFF"
   image: assets/splash/splash.png
+
+import_sorter:
+  ignored_files:
+    - \/*.g.dart/
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
