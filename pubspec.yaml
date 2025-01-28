@@ -85,7 +85,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   json_annotation: ^4.9.0
   device_preview: ^1.2.0
-  shared_preferences: ^2.3.5
+  shared_preferences: ^2.4.0
   rxdart: ^0.28.0
   firebase_cached_image: ^0.6.1
   connectivity_plus: ^6.1.2
