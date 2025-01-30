@@ -43,7 +43,7 @@ dependencies:
   riverpod_annotation: ^2.6.1
 
   # Api calls
-  dio: ^5.7.0
+  dio: ^5.8.0+1
   native_dio_adapter: ^1.4.0
   dio_web_adapter: ^2.0.0
   pretty_dio_logger: ^1.4.0
