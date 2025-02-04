@@ -14,7 +14,7 @@ part 'app_state_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 class AppStateNotifier extends _$AppStateNotifier {
-  SharedPreferences get _sharedPreferences =>
+  SharedPreferencesWithCache get _sharedPreferences =>
       ref.watch(sharedPreferencesProvider).requireValue;
 
   @override

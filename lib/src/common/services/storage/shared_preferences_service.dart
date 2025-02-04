@@ -1,8 +1,8 @@
 // Package imports:
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SharedPreferencesService {
-  SharedPreferencesService(this._sharedPreferences);
+class SharedPreferencesAsyncService {
+  SharedPreferencesAsyncService(this._sharedPreferences);
 
   final SharedPreferencesAsync _sharedPreferences;
 
