@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter/foundation.dart';
 
 // Package imports:
@@ -39,6 +40,18 @@ class HttpClient with DioMixin implements Dio {
       ErrorInterceptor(),
       AuthInterceptor(),
       UserAgentInterceptor(packageInfo),
+      RetryInterceptor(
+        dio: HttpClient(),
+        logPrint: print, // specify log function (optional)
+        retries: 4, // retry count (optional)
+        retryDelays: const [
+          // set delays between retries (optional)
+          Duration(seconds: 1), // wait 1 sec before the first retry
+          Duration(seconds: 2), // wait 2 sec before the second retry
+          Duration(seconds: 3), // wait 3 sec before the third retry
+          Duration(seconds: 4), // wait 4 sec before the fourth retry
+        ],
+      ),
     ]);
 
     if (!isLinux) {
