@@ -47,6 +47,7 @@ dependencies:
   native_dio_adapter: ^1.4.0
   dio_web_adapter: ^2.1.0
   pretty_dio_logger: ^1.4.0
+  dio_smart_retry: ^7.0.1
 
   # Cache
   cached_network_image: ^3.4.1
