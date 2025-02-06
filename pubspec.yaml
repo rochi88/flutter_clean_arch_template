@@ -69,7 +69,7 @@ dependencies:
   firebase_crashlytics: ^4.3.2
   firebase_performance: ^0.10.1
   firebase_performance_dio: ^0.7.1
-  firebase_messaging: ^15.2.1
+  firebase_messaging: ^15.2.2
 
   # Localization
   easy_localization: ^3.0.7
