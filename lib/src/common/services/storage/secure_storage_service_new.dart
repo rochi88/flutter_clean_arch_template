@@ -1,8 +1,12 @@
 // Package imports:
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class SecureStorageService {
+class SecureStorageServiceNew {
+  SecureStorageServiceNew(this._storage, this._cache);
+
   late final FlutterSecureStorage _storage;
+
+  late final Map<String, String> _cache;
 
   AndroidOptions _getAndroidOptions() => const AndroidOptions(
         encryptedSharedPreferences: true,
@@ -11,6 +15,22 @@ class SecureStorageService {
   IOSOptions _getIOSOptions() => const IOSOptions(
         accessibility: KeychainAccessibility.first_unlock,
       );
+
+  static Future<SecureStorageServiceNew> getInstance(
+      {required Set<String> keys}) async {
+    const flutterSecureStorage = FlutterSecureStorage();
+    final cache = <String, String>{};
+    await keys
+        .map((key) => flutterSecureStorage.read(key: key).then((value) {
+              if (value != null) {
+                cache[key] = value;
+              }
+            }))
+        .wait;
+    return SecureStorageServiceNew(flutterSecureStorage, cache);
+  }
+
+  String? get(String key) => _cache[key];
 
   Future<void> writeSecureData(String key, dynamic value) async {
     await _storage.write(
