@@ -93,7 +93,7 @@ dependencies:
   firebase_cached_image: ^0.6.3
   connectivity_plus: ^6.1.4
   device_info_plus: ^11.4.0
-  timezone: ^0.10.0
+  timezone: ^0.10.1
 
 dev_dependencies:
   flutter_test:
