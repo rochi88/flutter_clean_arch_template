@@ -501,10 +501,10 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_cached_image
-      sha256: "03a7dc2e9be2b3d2e0dd4fa4016a5fe2c99ea7d163474f25a56295d51a36d7b0"
+      sha256: "8a5bdd52fbc2cb493fdb416011ec2ae82d0c881f39ace8f06ad45e3a86b8bb5c"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.3"
+    version: "0.7.0"
   firebase_core:
     dependency: "direct main"
     description:
