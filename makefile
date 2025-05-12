@@ -23,6 +23,7 @@ run_unit: ## Runs unit tests
 clean: ## Cleans the environment
 	@echo "╠ Cleaning the project..."
 	@rm -rf pubspec.lock
+	@dart run build_runner clean
 	@flutter clean
 	@flutter pub get
 
