@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // Project imports:
-import '../../../../common/themes/app_constants.dart';
+import '../../../../core/themes/app_constants.dart';
 
 class LoginScreenTopImage extends StatelessWidget {
   const LoginScreenTopImage({

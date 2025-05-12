@@ -6,8 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import '../../../../common/themes/app_colors.dart';
-import '../../../../common/themes/app_constants.dart';
+import '../../../../core/themes/app_colors.dart';
+import '../../../../core/themes/app_constants.dart';
 import '../providers/auth_controller_provider.dart';
 
 class LoginForm extends ConsumerWidget {

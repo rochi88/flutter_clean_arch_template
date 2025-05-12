@@ -1,6 +1,6 @@
 // Project imports:
-import '../../../common/helpers/delay.dart';
-import '../../../common/utils/http_client.dart';
+import '../../../core/helpers/delay.dart';
+import '../../../core/utils/http_client.dart';
 import '../domain/models/notification_model.dart';
 
 class NotificationRepository {

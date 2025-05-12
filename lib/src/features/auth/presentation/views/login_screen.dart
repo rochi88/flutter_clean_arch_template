@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import '../../../../common/utils/responsive.dart';
+import '../../../../core/utils/responsive.dart';
 import '../widgets/background.dart';
 import '../widgets/login_form.dart';
 import '../widgets/login_screen_top_image.dart';

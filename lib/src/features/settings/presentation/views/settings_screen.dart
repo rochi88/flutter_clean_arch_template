@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
-import '../../../../common/providers/app_state_provider.dart';
+import '../../../../core/providers/app_state_provider.dart';
 import '../../../auth/presentation/providers/auth_controller_provider.dart';
 import '../widgets/settings_section.dart';
 import '../widgets/switch_row.dart';

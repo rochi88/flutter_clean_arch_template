@@ -8,10 +8,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Project imports:
-import 'common/localization/string_hardcoded.dart';
-import 'common/providers/app_state_provider.dart';
-import 'common/themes/app_themes.dart';
-import 'common/utils/target_platform.dart';
+import 'core/localization/string_hardcoded.dart';
+import 'core/providers/app_state_provider.dart';
+import 'core/themes/app_themes.dart';
+import 'core/utils/target_platform.dart';
 import 'routing/app_router.dart';
 
 class MyApp extends ConsumerWidget {

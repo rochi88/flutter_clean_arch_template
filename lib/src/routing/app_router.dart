@@ -9,16 +9,18 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
-import '../common/observer/app_navigator_observer.dart';
-import '../common/providers/app_state_provider.dart';
+import '../core/observer/app_navigator_observer.dart';
+import '../core/providers/app_state_provider.dart';
 import '../features/auth/presentation/providers/auth_controller_provider.dart';
+import '../features/auth/presentation/views/signin_screen.dart';
 import '../features/home/presentation/views/home_screen.dart';
+import '../features/onboarding/presentation/views/onboarding_screen.dart';
 import 'go_router_refresh_stream.dart';
 import 'not_found_screen.dart';
 
 part 'app_router.g.dart';
 
-enum AppRoute { home }
+enum AppRoute { home, onboarding, signin }
 
 @Riverpod(keepAlive: true)
 GoRouter appRouter(Ref ref) {
@@ -28,17 +30,17 @@ GoRouter appRouter(Ref ref) {
   final appState = ref.watch(appStateNotifierProvider);
   return GoRouter(
     navigatorKey: routerKey,
-    initialLocation: appState.onboardingCompleted ? '/login' : '/onboarding',
+    initialLocation: appState.onboardingCompleted ? '/signin' : '/onboarding',
     debugLogDiagnostics: kDebugMode,
     redirect: (context, state) {
       final isLoggedIn = authRepository.currentUser != null;
       final path = state.uri.path;
       if (isLoggedIn) {
-        if (path == '/login') {
+        if (path == '/signin') {
           return '/home';
         }
       } else {
-        return appState.onboardingCompleted ? '/login' : '/onboarding';
+        return appState.onboardingCompleted ? '/signin' : '/onboarding';
       }
       return null;
     },
@@ -48,6 +50,16 @@ GoRouter appRouter(Ref ref) {
         path: '/',
         name: AppRoute.home.name,
         builder: (context, state) => HomeScreen(),
+      ),
+      GoRoute(
+        path: '/onboarding',
+        name: AppRoute.onboarding.name,
+        builder: (context, state) => OnboardingScreen(),
+      ),
+      GoRoute(
+        path: '/signin',
+        name: AppRoute.signin.name,
+        builder: (context, state) => SigninScreen(),
       ),
     ],
     errorBuilder: (context, state) => const NotFoundScreen(),

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../../../../common/themes/app_colors.dart';
-import '../../../../common/themes/app_constants.dart';
+import '../../../../core/themes/app_colors.dart';
+import '../../../../core/themes/app_constants.dart';
 
 class DotIndicator extends StatelessWidget {
   const DotIndicator({

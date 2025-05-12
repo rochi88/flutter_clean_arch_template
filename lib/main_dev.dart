@@ -20,91 +20,80 @@ import 'package:path_provider/path_provider.dart';
 // Project imports:
 import 'firebase_options.dart';
 import 'src/app_dev.dart';
-import 'src/common/exceptions/async_error_logger.dart';
-import 'src/common/exceptions/error_logger.dart';
-import 'src/common/localization/string_hardcoded.dart';
-import 'src/common/providers/http_client_provider.dart';
-import 'src/common/providers/package_info_provider.dart';
-import 'src/common/providers/shared_preferences_provider.dart';
-import 'src/common/services/notification/notification_service.dart';
-import 'src/common/utils/target_platform.dart';
+import 'src/core/providers/http_client_provider.dart';
+import 'src/core/providers/shared_preferences_provider.dart';
+import 'src/core/services/notification/fcm_notification.dart';
+import 'src/core/utils/target_platform.dart';
 
 late String tempPath;
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await NotificationService.setupFlutterNotifications();
-  await NotificationService.showFlutterNotification(message);
+  await setupFlutterNotifications();
+  showFlutterNotification(message);
+  // If you're going to use other Firebase services in the background, such as Firestore,
+  // make sure you call `initializeApp` before using other Firebase services.
+  if (kDebugMode) {
+    print('Handling a background message ${message.messageId}');
+  }
 }
 
 Future<void> main() async {
-  await runZonedGuarded(
-    () async {
-      final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-      await EasyLocalization.ensureInitialized();
+  await runZonedGuarded(() async {
+    final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+    await EasyLocalization.ensureInitialized();
 
-      // Retain native splash screen until Dart is ready
-      if (!kIsWeb) {
-        FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-        tempPath = (await getTemporaryDirectory()).path;
-      }
+    // Retain native splash screen until Dart is ready
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-      if (isAndroid) {
-        await FlutterDisplayMode.setHighRefreshRate();
-      }
+    if (!kIsWeb) {
+      tempPath = (await getTemporaryDirectory()).path;
+    }
 
-      if (!isLinux) {
-        await _initializeApp();
-      }
+    if (isAndroid) {
+      await FlutterDisplayMode.setHighRefreshRate();
+    }
 
-      final container = ProviderContainer(
-        observers: [AsyncErrorLogger()],
-      );
-      // * Preload SharedPreferences before calling runApp,
-      // * app depends on it in order to load the themeMode
-      container.read(sharedPreferencesProvider.future);
-      container.read(packageInfoProvider.future);
-      container.read(httpClientProvider);
-      final errorLogger = container.read(errorLoggerProvider);
-      // * Register error handlers. For more info, see:
-      // * https://docs.flutter.dev/testing/errors
-      registerErrorHandlers(errorLogger);
+    if (!isLinux) {
+      await _initializeApp();
+    }
 
-      runApp(
-        DevicePreview(
-            enabled: !kReleaseMode,
-            builder: (context) {
-              return UncontrolledProviderScope(
-                container: container,
-                child: EasyLocalization(
-                  path: 'assets/translations',
-                  supportedLocales: const [
-                    Locale('en'),
-                    Locale('bn'),
-                  ],
-                  fallbackLocale: const Locale('en'),
-                  child: const DevApp(),
-                ),
-              );
-            }),
-      );
+    final container = ProviderContainer();
+    // * Preload SharedPreferences before calling runApp,
+    // * app depends on it in order to load the themeMode
+    container.read(sharedPreferencesProvider);
+    container.read(httpClientProvider);
 
-      if (!kIsWeb) {
-        FlutterNativeSplash.remove();
-      }
-    },
-    (error, stacktrace) {
-      if (!isLinux || !kIsWeb) {
-        FirebaseCrashlytics.instance
-            .recordError(error, stacktrace, fatal: true);
-      }
-      if (kDebugMode) {
-        print('Error: $error');
-        print('Stacktrace: $stacktrace');
-      }
-    },
-  );
+    runApp(
+      DevicePreview(
+          enabled: !kReleaseMode,
+          builder: (context) {
+            return UncontrolledProviderScope(
+              container: container,
+              child: EasyLocalization(
+                path: 'assets/translations',
+                supportedLocales: const [
+                  Locale('en'),
+                  Locale('bn'),
+                ],
+                fallbackLocale: const Locale('en'),
+                child: const DevApp(),
+              ),
+            );
+          }),
+    );
+
+    FlutterNativeSplash.remove();
+  }, (error, stacktrace) {
+    if (!isLinux || !kIsWeb) {
+      FirebaseCrashlytics.instance.recordError(error, stacktrace, fatal: true);
+    }
+    if (kDebugMode) {
+      print('Error: $error');
+      print('Stacktrace: $stacktrace');
+    }
+  });
 }
 
 Future<void> _initializeApp() async {
@@ -125,35 +114,11 @@ Future<void> _initializeApp() async {
 
     await FirebaseMessaging.instance.setAutoInitEnabled(true);
 
-    FirebaseMessaging.onMessage
-        .listen(NotificationService.showFlutterNotification);
+    FirebaseMessaging.onMessage.listen(showFlutterNotification);
 
     // Set the background messaging handler early on, as a named top-level function
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-    await NotificationService.setupFlutterNotifications();
+    await setupFlutterNotifications();
   }
-}
-
-void registerErrorHandlers(ErrorLogger errorLogger) {
-  // * Show some error UI if any uncaught exception happens
-  FlutterError.onError = (FlutterErrorDetails details) {
-    FlutterError.presentError(details);
-    errorLogger.logError(details.exception, details.stack);
-  };
-  // * Handle errors from the underlying platform/OS
-  PlatformDispatcher.instance.onError = (Object error, StackTrace stack) {
-    errorLogger.logError(error, stack);
-    return true;
-  };
-  // * Show some error UI when any widget in the app fails to build
-  ErrorWidget.builder = (FlutterErrorDetails details) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: Text('An error occurred'.hardcoded),
-      ),
-      body: Center(child: Text(details.toString())),
-    );
-  };
 }

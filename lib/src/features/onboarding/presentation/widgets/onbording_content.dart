@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../../../../common/themes/app_sizes.dart';
+import '../../../../core/themes/app_sizes.dart';
 
 class OnbordingContent extends StatelessWidget {
   const OnbordingContent({

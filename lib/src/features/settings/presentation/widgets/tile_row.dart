@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../../../../common/widgets/responsive_screen.dart';
-import '../../../../common/widgets/visibility.dart';
+import '../../../../core/widgets/responsive_screen.dart';
+import '../../../../core/widgets/visibility.dart';
 
 //textColors
 Color disabledTextColour = Colors.black54;

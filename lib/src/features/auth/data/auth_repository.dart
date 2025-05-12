@@ -1,10 +1,10 @@
 // Project imports:
-import '../../../common/helpers/app_helpers.dart';
-import '../../../common/helpers/delay.dart';
-import '../../../common/services/storage/secure_storage_service.dart';
-import '../../../common/utils/device_info.dart';
-import '../../../common/utils/http_client.dart';
-import '../../../common/utils/in_memory_store.dart';
+import '../../../core/helpers/app_helpers.dart';
+import '../../../core/helpers/delay.dart';
+import '../../../core/services/storage/secure_storage_service.dart';
+import '../../../core/utils/device_info.dart';
+import '../../../core/utils/http_client.dart';
+import '../../../core/utils/in_memory_store.dart';
 import '../domain/models/app_user.dart';
 
 class AuthRepository {

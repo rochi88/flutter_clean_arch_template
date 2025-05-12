@@ -7,9 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 // Project imports:
-import '../../../../common/providers/app_state_provider.dart';
-import '../../../../common/themes/app_constants.dart';
-import '../../../../common/themes/app_sizes.dart';
+import '../../../../core/providers/app_state_provider.dart';
+import '../../../../core/themes/app_constants.dart';
+import '../../../../core/themes/app_sizes.dart';
 import '../widgets/dot_indicators.dart';
 import '../widgets/onbording_content.dart';
 

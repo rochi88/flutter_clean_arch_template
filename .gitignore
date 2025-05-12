@@ -52,3 +52,4 @@ GoogleService-Info.plist
 
 # FVM Version Cache
 .fvm/
+.cxx/

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import '../../../../common/widgets/responsive_screen.dart';
+import '../../../../core/widgets/responsive_screen.dart';
 
 class SettingSection extends StatefulWidget {
   final String headerText;

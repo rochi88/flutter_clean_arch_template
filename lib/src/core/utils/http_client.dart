@@ -4,9 +4,7 @@ import 'package:flutter/foundation.dart';
 // Package imports:
 import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
-import 'package:dio_web_adapter/dio_web_adapter.dart';
 import 'package:firebase_performance_dio/firebase_performance_dio.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 // Project imports:
@@ -15,10 +13,11 @@ import 'http_interceptors/error_interceptor.dart';
 import 'http_interceptors/user_agent_interceptor.dart';
 import 'target_platform.dart';
 
-// import 'package:native_dio_adapter/native_dio_adapter.dart'; // !!!! DO NOT USE THIS ON WEB BUILD !!!!
+// import 'package:dio_web_adapter/dio_web_adapter.dart';
+import 'package:native_dio_adapter/native_dio_adapter.dart'; // !!!! DO NOT USE THIS ON WEB BUILD !!!!
 
 class HttpClient with DioMixin implements Dio {
-  HttpClient({BaseOptions? baseOptions, PackageInfo? packageInfo}) {
+  HttpClient({BaseOptions? baseOptions}) {
     options = (baseOptions ?? BaseOptions()).copyWith(
       validateStatus: (int? status) {
         return status != null && status >= 200 && status < 400;
@@ -26,22 +25,22 @@ class HttpClient with DioMixin implements Dio {
     );
 
     // !!!! DO NOT USE THIS ON WEB BUILD !!!!
-    // httpClientAdapter = NativeAdapter(
-    //   createCupertinoConfiguration: () =>
-    //       URLSessionConfiguration.ephemeralSessionConfiguration()
-    //         ..allowsCellularAccess = false
-    //         ..allowsConstrainedNetworkAccess = false
-    //         ..allowsExpensiveNetworkAccess = false,
-    // );
+    httpClientAdapter = NativeAdapter(
+      createCupertinoConfiguration: () =>
+          URLSessionConfiguration.ephemeralSessionConfiguration()
+            ..allowsCellularAccess = false
+            ..allowsConstrainedNetworkAccess = false
+            ..allowsExpensiveNetworkAccess = false,
+    );
 
-    httpClientAdapter = BrowserHttpClientAdapter(withCredentials: true);
+    // httpClientAdapter = BrowserHttpClientAdapter(withCredentials: true);
 
     interceptors.addAll([
       ErrorInterceptor(),
       AuthInterceptor(),
-      UserAgentInterceptor(packageInfo),
+      UserAgentInterceptor(),
       RetryInterceptor(
-        dio: HttpClient(),
+        dio: this,
         logPrint: print, // specify log function (optional)
         retries: 4, // retry count (optional)
         retryDelays: const [
