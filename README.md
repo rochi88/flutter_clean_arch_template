@@ -49,7 +49,7 @@ New Flutter project with clean archetechture
 5. **App Icons**
 
    Then we'll auto-generate your app launcher icons using the [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) package.
-   * Copy the image you want to make your launcher icons out of to `assets/icon/icon.png.`
+   * Copy the image you want to make your launcher icons out of to `assets/icons/icon.png.`
    * Now run `dart run flutter_launcher_icons`. This command will auto-generate Android and iOS launcher icons from the PNG file for the different DPIs and place them in their respective resource directories.
 
    **NOTE**: Check the [package documentation](https://pub.dev/packages/flutter_launcher_icons#book-guide) for more configuration options on generating launcher icons updating your `pubspec. yaml` accordingly.
