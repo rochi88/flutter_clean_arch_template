@@ -100,7 +100,8 @@ build_apk_prod: ## Builds the mobile application in prod
 build_bundle: ## Builds the mobile application in prod for distribution
 	@flutter clean
 	@flutter pub get
-	@flutter build appbundle
+	@flutter build appbundle --release --obfuscate --split-debug-info=build/app/symbols
+	@cd android && ./gradlew bundleRelease
 
 purge: ## Purges the Flutter 
 	@pod deintegrate
