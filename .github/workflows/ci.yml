@@ -5,11 +5,11 @@ on:
       flavor:
         type: choice
         description: "Flavor"
-        default: "dev"
+        default: "staging"
         required: false
         options:
-          - "dev"
           - "staging"
+          - "qa"
           - "prod"
       run_tests:
         description: "Run tests"
@@ -25,7 +25,7 @@ on:
 
 env:
   FLUTTER_CHANNEL: "stable"
-  FLUTTER_VERSION: "3.19"
+  FLUTTER_VERSION: "3.29"
   FLAVOR: ""
   # https://github.com/transferwise/sanitize-branch-name/blob/main/action.yml
   BRANCH_NAME: $(echo -n ${{ github.head_ref || github.ref_name }} | tr "/" "-")

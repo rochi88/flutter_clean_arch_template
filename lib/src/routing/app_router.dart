@@ -63,8 +63,11 @@ GoRouter appRouter(Ref ref) {
       ),
     ],
     errorBuilder: (context, state) => const NotFoundScreen(),
-    observers: (kDebugMode)
-        ? [AppNavigatorObserver()]
-        : [FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance)],
+    observers:
+        (kDebugMode)
+            ? [AppNavigatorObserver()]
+            : [
+              FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+            ],
   );
 }

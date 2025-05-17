@@ -23,18 +23,11 @@ class OnbordingContent extends StatelessWidget {
         const Spacer(),
 
         if (isTextOnTop)
-          OnbordTitleDescription(
-            title: title,
-            description: description,
-          ),
+          OnbordTitleDescription(title: title, description: description),
         if (isTextOnTop) const Spacer(),
 
         /// if you are using SVG then replace [Image.asset] with [SvgPicture.asset]
-
-        Image.asset(
-          image,
-          height: 250,
-        ),
+        Image.asset(image, height: 250),
         if (!isTextOnTop) const Spacer(),
         if (!isTextOnTop)
           const OnbordTitleDescription(
@@ -65,16 +58,12 @@ class OnbordTitleDescription extends StatelessWidget {
         Text(
           title,
           textAlign: TextAlign.center,
-          style: Theme.of(context)
-              .textTheme
-              .headlineSmall!
-              .copyWith(fontWeight: FontWeight.w500),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.w500),
         ),
         gapH16,
-        Text(
-          description,
-          textAlign: TextAlign.center,
-        ),
+        Text(description, textAlign: TextAlign.center),
       ],
     );
   }

@@ -1,35 +1,14 @@
-# Gson rules
-#-----------------------------------------------------
-# Gson uses generic type information stored in a class file when working with fields. Proguard
-# removes such information by default, so configure it to keep all of it.
--keepattributes Signature
+# ===========================
+# ✅ Core Flutter rules
+# ===========================
+# -keep class io.flutter.embedding.** { *; }
+# -keep class io.flutter.plugin.** { *; }
+# -keep class io.flutter.plugins.** { *; }
+# -keep class io.flutter.view.** { *; }
+# -keep class io.flutter.app.** { *; }
+# -keep class io.flutter.util.** { *; }
+# -ignorewarnings
 
-# For using GSON @Expose annotation
--keepattributes *Annotation*
-
-# Gson specific classes
--dontwarn sun.misc.**
-#-keep class com.google.gson.stream.** { *; }
-
-# Prevent proguard from stripping interface information from TypeAdapter, TypeAdapterFactory,
-# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
--keep class * extends com.google.gson.TypeAdapter
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-
-# Prevent R8 from leaving Data object members always null
--keepclassmembers,allowobfuscation class * {
-  @com.google.gson.annotations.SerializedName <fields>;
-}
-
-# Retain generic signatures of TypeToken and its subclasses with R8 version 3.0 and higher.
--keep,allowobfuscation,allowshrinking class com.google.gson.reflect.TypeToken
--keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
-
-#-----------------------------------------------------
-
-#Flutter Wrapper
 -keep class io.flutter.app.** { *; }
 -keep class io.flutter.plugin.**  { *; }
 -keep class io.flutter.util.**  { *; }
@@ -38,30 +17,83 @@
 -keep class io.flutter.plugins.**  { *; }
 -ignorewarnings
 
-#Firebase
+# ===========================
+# ✅ Gson rules
+# ===========================
+-keepattributes Signature, *Annotation*
+-keep class * extends com.google.gson.TypeAdapter
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+-keepclassmembers,allowobfuscation class * {
+    @com.google.gson.annotations.SerializedName <fields>;
+}
+
+-keep,allowobfuscation,allowshrinking class com.google.gson.reflect.TypeToken
+-keep,allowobfuscation,allowshrinking class * extends com.google.gson.reflect.TypeToken
+
+# ===========================
+# ✅ Firebase (Analytics, Crashlytics, etc.)
+# ===========================
 -keep class com.google.firebase.** { *; }
 -keep class com.firebase.** { *; }
--keep class org.apache.** { *; }
--keepnames class com.fasterxml.jackson.** { *; }
--keepnames class javax.servlet.** { *; }
--keepnames class org.ietf.jgss.** { *; }
--dontwarn org.w3c.dom.**
--dontwarn org.joda.time.**
--dontwarn org.shaded.apache.**
--dontwarn org.ietf.jgss.**
--keepattributes Signature
--keepattributes *Annotation*
--keepattributes EnclosingMethod
--keepattributes InnerClasses
--keep class androidx.lifecycle.DefaultLifecycleObserver
+-keepattributes SourceFile, LineNumberTable, *Annotation*, EnclosingMethod, InnerClasses
+-keep public class * extends java.lang.Exception
 
-#Crashlytics
--keepattributes SourceFile,LineNumberTable        # Keep file names and line numbers.
+# ===========================
+# ✅ Crashlytics recommended rules
+# ===========================
 -renamesourcefileattribute SourceFile
--keep public class * extends java.lang.Exception  
--keep class com.ito_technologies.soudan.** { *; }
+-keepattributes SourceFile, LineNumberTable
 
-#Maintain Native Method Calls
+# ===========================
+# ✅ AndroidX Lifecycle (for observers)
+# ===========================
+-keep class androidx.lifecycle.DefaultLifecycleObserver { *; }
+-keep class androidx.lifecycle.LifecycleObserver { *; }
+
+# ==========================
+# ✅ Retrofit & OkHttp (if used)
+# ==========================
+# -dontwarn okhttp3.**
+# -dontwarn retrofit2.**
+# -keep class retrofit2.** { *; }
+# -keep interface retrofit2.** { *; }
+
+# ===========================
+# ✅ ML, and common libs
+# ===========================
+-dontwarn org.apache.**
+-dontwarn org.joda.time.**
+-dontwarn org.ietf.jgss.**
+-dontwarn org.shaded.apache.**
+
+# ===========================
+# ✅ Native method references (for JNI calls)
+# ===========================
 -keepclasseswithmembernames class * {
     native <methods>;
 }
+
+# ==========================
+# ✅ General Safety
+# ==========================
+# Keep annotations & inner classes for frameworks that rely on reflection
+-keepattributes *Annotation*, EnclosingMethod, InnerClasses
+
+# ===========================
+# ✅ Optional: Handle common serialization & reflection (ML libs)
+# ===========================
+-keep class com.fasterxml.jackson.** { *; }
+-keep class org.json.** { *; }
+
+# ===========================
+# ✅ General clean-up
+# ===========================
+# Disable overly aggressive optimizations if unsure (optional safety net)
+# -dontoptimize
+
+# Safer than -ignorewarnings in production builds
+# Instead, collect mappings to debug obfuscation if needed
+# -printmapping mapping.txt

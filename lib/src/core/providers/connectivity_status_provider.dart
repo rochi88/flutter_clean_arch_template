@@ -6,9 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'connectivity_status_provider.g.dart';
 
 @riverpod
-Stream<List<ConnectivityResult>> connectivityStatus(
-  Ref ref,
-) async* {
+Stream<List<ConnectivityResult>> connectivityStatus(Ref ref) async* {
   final Connectivity connectivity = Connectivity();
 
   // yield first connectivity result
@@ -22,7 +20,5 @@ Stream<List<ConnectivityResult>> connectivityStatus(
 
 /// only listen to changes
 @riverpod
-Stream<List<ConnectivityResult>> connectivityChanged(
-  Ref ref,
-) =>
+Stream<List<ConnectivityResult>> connectivityChanged(Ref ref) =>
     Connectivity().onConnectivityChanged;

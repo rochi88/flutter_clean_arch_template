@@ -33,7 +33,7 @@ class EmptyPlaceholderWidget extends StatelessWidget {
             PrimaryButton(
               onPressed: () => context.goNamed(AppRoute.home.name),
               text: 'Go Home'.hardcoded,
-            )
+            ),
           ],
         ),
       ),

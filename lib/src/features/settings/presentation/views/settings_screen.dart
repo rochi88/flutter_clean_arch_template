@@ -44,15 +44,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Settings',
-              style: TextStyle(
-                  fontFamily: 'Exo2', color: Colors.black, fontSize: 20)),
+          title: Text(
+            'Settings',
+            style: TextStyle(
+              fontFamily: 'Exo2',
+              color: Colors.black,
+              fontSize: 20,
+            ),
+          ),
           backgroundColor: Colors.white,
         ),
         body: AnnotatedRegion(
           value: SystemUiOverlayStyle(
-              statusBarColor: Colors.white,
-              statusBarIconBrightness: Brightness.dark),
+            statusBarColor: Colors.white,
+            statusBarIconBrightness: Brightness.dark,
+          ),
           child: Container(
             color: Colors.white,
             child: SingleChildScrollView(
@@ -138,16 +144,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       backgroundColor: Colors.white,
       disableDivider: true,
       children: [
-        TileRow(
-          label: 'Contact Us',
-          disableDivider: false,
-          onTap: () {},
-        ),
-        TileRow(
-          label: 'Contact Us',
-          disableDivider: false,
-          onTap: () {},
-        ),
+        TileRow(label: 'Contact Us', disableDivider: false, onTap: () {}),
+        TileRow(label: 'Contact Us', disableDivider: false, onTap: () {}),
       ],
     );
   }
@@ -160,31 +158,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       backgroundColor: Colors.white,
       disableDivider: false,
       children: <Widget>[
-        TileRow(
-          label: 'Contact Us',
-          disableDivider: false,
-          onTap: () {},
-        ),
+        TileRow(label: 'Contact Us', disableDivider: false, onTap: () {}),
         TileRow(
           label: 'Terms and Condition',
           disableDivider: false,
           onTap: () {},
         ),
-        TileRow(
-          label: 'Feedback',
-          disableDivider: false,
-          onTap: () {},
-        ),
+        TileRow(label: 'Feedback', disableDivider: false, onTap: () {}),
         TileRow(
           label: 'Log out',
           disableDivider: false,
           onTap: () {
             ref.read(authControllerProvider).signOut();
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('Logged out'),
-              ),
-            );
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text('Logged out')));
           },
         ),
       ],

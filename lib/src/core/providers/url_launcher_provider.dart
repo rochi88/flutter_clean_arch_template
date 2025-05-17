@@ -25,8 +25,12 @@ class UrlLauncher {
         return false;
       }
     } catch (e, st) {
-      log('Failed launching URL: $uri, $e',
-          name: _name, error: e, stackTrace: st);
+      log(
+        'Failed launching URL: $uri, $e',
+        name: _name,
+        error: e,
+        stackTrace: st,
+      );
       // TODO: Error monitoring
       return false;
     }

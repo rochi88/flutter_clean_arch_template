@@ -79,7 +79,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(
-              horizontal: AppConstants.defaultPadding),
+            horizontal: AppConstants.defaultPadding,
+          ),
           child: Column(
             children: [
               Align(
@@ -91,7 +92,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                   child: Text(
                     'Skip',
                     style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyLarge!.color),
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
+                    ),
                   ),
                 ),
               ),
@@ -104,15 +106,17 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       _pageIndex = value;
                     });
                   },
-                  itemBuilder: (context, index) => OnbordingContent(
-                    title: _onbordData[index].title,
-                    description: _onbordData[index].description,
-                    image: (Theme.of(context).brightness == Brightness.dark &&
-                            _onbordData[index].imageDarkTheme != null)
-                        ? _onbordData[index].imageDarkTheme!
-                        : _onbordData[index].image,
-                    isTextOnTop: index.isOdd,
-                  ),
+                  itemBuilder:
+                      (context, index) => OnbordingContent(
+                        title: _onbordData[index].title,
+                        description: _onbordData[index].description,
+                        image:
+                            (Theme.of(context).brightness == Brightness.dark &&
+                                    _onbordData[index].imageDarkTheme != null)
+                                ? _onbordData[index].imageDarkTheme!
+                                : _onbordData[index].image,
+                        isTextOnTop: index.isOdd,
+                      ),
                 ),
               ),
               Row(
@@ -121,7 +125,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     _onbordData.length,
                     (index) => Padding(
                       padding: const EdgeInsets.only(
-                          right: AppConstants.defaultPadding / 4),
+                        right: AppConstants.defaultPadding / 4,
+                      ),
                       child: DotIndicator(isActive: index == _pageIndex),
                     ),
                   ),
@@ -133,8 +138,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                       onPressed: () {
                         if (_pageIndex < _onbordData.length - 1) {
                           _pageController.nextPage(
-                              curve: Curves.ease,
-                              duration: AppConstants.defaultDuration);
+                            curve: Curves.ease,
+                            duration: AppConstants.defaultDuration,
+                          );
                         } else {
                           ref
                               .read(appStateNotifierProvider.notifier)

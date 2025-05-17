@@ -8,18 +8,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/themes/app_constants.dart';
 
 class LoginScreenTopImage extends StatelessWidget {
-  const LoginScreenTopImage({
-    super.key,
-  });
+  const LoginScreenTopImage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text(
-          'LOGIN',
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        const Text('LOGIN', style: TextStyle(fontWeight: FontWeight.bold)),
         const SizedBox(height: AppConstants.defaultPadding * 2),
         Row(
           children: [

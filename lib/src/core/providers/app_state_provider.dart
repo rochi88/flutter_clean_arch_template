@@ -25,16 +25,17 @@ class AppStateNotifier extends _$AppStateNotifier {
       'dark' => ThemeMode.dark,
       'system' || _ => ThemeMode.system,
     };
-    final appVersion = ref.watch(packageInfoProvider).value!.version;
+    final appVersion = ref.watch(packageInfoProvider).value?.version;
 
     return AppState(
-        themeMode: themeMode,
-        onboardingCompleted:
-            _sharedPreferences.getBool('onboardingCompleted') ?? false,
-        languageCode: _sharedPreferences.getString('languageCode') ?? 'en',
-        appVersion: appVersion,
-        dbSynced: _sharedPreferences.getBool('dbSynced') ?? false,
-        dbSyncedAt: _sharedPreferences.getString('dbSyncedAt') ?? '');
+      themeMode: themeMode,
+      onboardingCompleted:
+          _sharedPreferences.getBool('onboardingCompleted') ?? false,
+      languageCode: _sharedPreferences.getString('languageCode') ?? 'en',
+      appVersion: _sharedPreferences.getString('appVersion') ?? appVersion,
+      dbSynced: _sharedPreferences.getBool('dbSynced') ?? false,
+      dbSyncedAt: _sharedPreferences.getString('dbSyncedAt') ?? '',
+    );
   }
 
   Future<void> setThemeMode(ThemeMode themeMode) async {

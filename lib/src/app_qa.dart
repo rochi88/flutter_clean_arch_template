@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,8 +15,8 @@ import 'core/themes/app_themes.dart';
 import 'core/utils/target_platform.dart';
 import 'routing/app_router.dart';
 
-class MyApp extends ConsumerWidget {
-  const MyApp({super.key});
+class DevApp extends ConsumerWidget {
+  const DevApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,7 +28,7 @@ class MyApp extends ConsumerWidget {
           designSize: const Size(
             393,
             852,
-          ), // viewport size of iPhone 15, iPhone 16
+          ), // viewport size of iPhone 14 Pro, iPhone 15
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (_, child) {
@@ -37,7 +38,10 @@ class MyApp extends ConsumerWidget {
               supportedLocales: context.supportedLocales,
               locale: context.locale,
               debugShowCheckedModeBanner: false,
-              theme: AppThemes.ilight(),
+              theme:
+                  appState.themeMode == ThemeMode.dark
+                      ? AppThemes.idark()
+                      : AppThemes.ilight(),
             );
           },
         )
@@ -50,7 +54,8 @@ class MyApp extends ConsumerWidget {
               routerConfig: appRouter,
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
-              locale: context.locale,
+              locale: DevicePreview.locale(context),
+              builder: DevicePreview.appBuilder,
               debugShowCheckedModeBanner: false,
               restorationScopeId: 'app',
               onGenerateTitle: (BuildContext context) => 'Example'.hardcoded,

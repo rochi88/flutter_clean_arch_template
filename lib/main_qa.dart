@@ -19,7 +19,7 @@ import 'package:path_provider/path_provider.dart';
 
 // Project imports:
 import 'firebase_options.dart';
-import 'src/app_dev.dart';
+import 'src/app_qa.dart';
 import 'src/core/providers/http_client_provider.dart';
 import 'src/core/providers/shared_preferences_provider.dart';
 import 'src/core/services/notification/fcm_notification.dart';
@@ -40,77 +40,80 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 Future<void> main() async {
-  await runZonedGuarded(() async {
-    final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-    await EasyLocalization.ensureInitialized();
+  await runZonedGuarded(
+    () async {
+      final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+      await EasyLocalization.ensureInitialized();
 
-    // Retain native splash screen until Dart is ready
-    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+      // Retain native splash screen until Dart is ready
+      FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-    if (!kIsWeb) {
-      tempPath = (await getTemporaryDirectory()).path;
-    }
+      if (!kIsWeb) {
+        tempPath = (await getTemporaryDirectory()).path;
+      }
 
-    if (isAndroid) {
-      await FlutterDisplayMode.setHighRefreshRate();
-    }
+      if (isAndroid) {
+        await FlutterDisplayMode.setHighRefreshRate();
+      }
 
-    if (!isLinux) {
-      await _initializeApp();
-    }
+      if (!isLinux) {
+        await _initializeApp();
+      }
 
-    final container = ProviderContainer();
-    // * Preload SharedPreferences before calling runApp,
-    // * app depends on it in order to load the themeMode
-    container.read(sharedPreferencesProvider);
-    container.read(httpClientProvider);
+      final container = ProviderContainer();
+      // * Preload SharedPreferences before calling runApp,
+      // * app depends on it in order to load the themeMode
+      container.read(sharedPreferencesProvider);
+      container.read(httpClientProvider);
 
-    runApp(
-      DevicePreview(
+      runApp(
+        DevicePreview(
           enabled: !kReleaseMode,
           builder: (context) {
             return UncontrolledProviderScope(
               container: container,
               child: EasyLocalization(
                 path: 'assets/translations',
-                supportedLocales: const [
-                  Locale('en'),
-                  Locale('bn'),
-                ],
+                supportedLocales: const [Locale('en'), Locale('bn')],
                 fallbackLocale: const Locale('en'),
                 child: const DevApp(),
               ),
             );
-          }),
-    );
+          },
+        ),
+      );
 
-    FlutterNativeSplash.remove();
-  }, (error, stacktrace) {
-    if (!isLinux || !kIsWeb) {
-      FirebaseCrashlytics.instance.recordError(error, stacktrace, fatal: true);
-    }
-    if (kDebugMode) {
-      print('Error: $error');
-      print('Stacktrace: $stacktrace');
-    }
-  });
+      FlutterNativeSplash.remove();
+    },
+    (error, stacktrace) {
+      if (!isLinux || !kIsWeb) {
+        FirebaseCrashlytics.instance.recordError(
+          error,
+          stacktrace,
+          fatal: true,
+        );
+      }
+      if (kDebugMode) {
+        print('Error: $error');
+        print('Stacktrace: $stacktrace');
+      }
+    },
+  );
 }
 
 Future<void> _initializeApp() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  await FirebasePerformance.instance.setPerformanceCollectionEnabled(
+    !kDebugMode,
   );
 
-  await FirebasePerformance.instance
-      .setPerformanceCollectionEnabled(!kDebugMode);
-
   if (!kIsWeb) {
-    await FirebaseCrashlytics.instance
-        .setCrashlyticsCollectionEnabled(!kDebugMode);
-
-    await FirebaseMessaging.instance.requestPermission(
-      provisional: true,
+    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(
+      !kDebugMode,
     );
+
+    await FirebaseMessaging.instance.requestPermission(provisional: true);
 
     await FirebaseMessaging.instance.setAutoInitEnabled(true);
 

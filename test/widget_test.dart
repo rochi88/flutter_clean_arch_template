@@ -9,15 +9,26 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 // Project imports:
 import 'package:flutter_clean_arch_template/src/app.dart';
+import 'package:flutter_clean_arch_template/src/core/providers/http_client_provider.dart';
+import 'package:flutter_clean_arch_template/src/core/providers/shared_preferences_provider.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    final container = ProviderContainer();
+    // * Preload SharedPreferences before calling runApp,
+    // * app depends on it in order to load the themeMode
+    container.read(sharedPreferencesProvider);
+    container.read(httpClientProvider);
+
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(
+      UncontrolledProviderScope(container: container, child: MyApp()),
+    );
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

@@ -13,14 +13,15 @@ class Notification {
   final Map? additionalData;
   final DateTime? date;
 
-  Notification(
-      {required this.id,
-      required this.title,
-      required this.body,
-      this.actionUrl,
-      this.seen = false,
-      this.additionalData,
-      this.date});
+  Notification({
+    required this.id,
+    required this.title,
+    required this.body,
+    this.actionUrl,
+    this.seen = false,
+    this.additionalData,
+    this.date,
+  });
 
   factory Notification.fromJson(Map<String, dynamic> json) =>
       _$NotificationFromJson(json);

@@ -19,22 +19,17 @@ class LoginScreen extends ConsumerWidget {
       child: SingleChildScrollView(
         child: Responsive(
           mobile: MobileLoginScreen(),
-          desktop: Row(children: [
-            Expanded(
-              child: LoginScreenTopImage(),
-            ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 450,
-                    child: LoginForm(),
-                  ),
-                ],
+          desktop: Row(
+            children: [
+              Expanded(child: LoginScreenTopImage()),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [SizedBox(width: 450, child: LoginForm())],
+                ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       ),
     );
@@ -42,9 +37,7 @@ class LoginScreen extends ConsumerWidget {
 }
 
 class MobileLoginScreen extends StatelessWidget {
-  const MobileLoginScreen({
-    super.key,
-  });
+  const MobileLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,14 +46,7 @@ class MobileLoginScreen extends StatelessWidget {
       children: <Widget>[
         LoginScreenTopImage(),
         Row(
-          children: [
-            Spacer(),
-            Expanded(
-              flex: 8,
-              child: LoginForm(),
-            ),
-            Spacer(),
-          ],
+          children: [Spacer(), Expanded(flex: 8, child: LoginForm()), Spacer()],
         ),
       ],
     );

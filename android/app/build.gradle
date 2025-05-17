@@ -42,15 +42,15 @@ android {
 
     compileOptions {
         // Sets Java compatibility to Java 11
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
 
         // Flag to enable support for the new language APIs
         coreLibraryDesugaringEnabled true
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     defaultConfig {
@@ -60,7 +60,7 @@ android {
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
 
         // minSdk = flutter.minSdkVersion
-        minSdk = 21 // firebase requires minSdkVersion to be at least 21
+        minSdk = 21
         
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
@@ -109,29 +109,32 @@ android {
         }
     }
 
-    // flavorDimensions "default"
+    // flavorDimensions "environment"
 
-    // productFlavors {   
-    //     development {
-    //         dimension "default"
-    //         applicationIdSuffix ".dev"
-    //         versionNameSuffix "-dev"
-    //         manifestPlaceholders = [appName: "[DEV] App"]
-    //     }
+    // productFlavors {
     //     staging {
-    //         dimension "default"
-    //         applicationIdSuffix ".stg"
-    //         versionNameSuffix "-stg"
-    //         manifestPlaceholders = [appName: "[STG] App"]
-    //     } 
+    //         dimension "environment"
+    //         applicationIdSuffix ".staging"
+    //         versionNameSuffix "-staging"
+    //     }
+    //     qa {
+    //         dimension "environment"
+    //         applicationIdSuffix ".qa"
+    //         versionNameSuffix "-qa"
+    //     }
     //     production {
-    //         dimension "default"
-    //         // applicationIdSuffix ""
-    //         // versionNameSuffix ""
-    //         manifestPlaceholders = [appName: "App"]
-    //     } 
+    //         dimension "environment"
+    //     }
     // }
 }
+
+
+// def getFlavorName() {
+//     def flavor = gradle.startParameter.taskRequests.toString().toLowerCase()
+//     if (flavor.contains('staging')) return 'staging'
+//     if (flavor.contains('qa')) return 'qa'
+//     return 'production'
+// }
 
 dependencies {
     implementation 'androidx.window:window:1.0.0'

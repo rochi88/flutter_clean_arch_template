@@ -43,10 +43,7 @@ class _NotificationScreenState extends ConsumerState<NotificationScreen> {
             icon: const Icon(Icons.arrow_back_ios),
           ),
           actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.filter_list),
-            ),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.filter_list)),
           ],
         ),
         body: ListView.separated(
@@ -69,14 +66,15 @@ class _NotificationScreenState extends ConsumerState<NotificationScreen> {
               ),
             );
           },
-          separatorBuilder: (BuildContext context, int index) => Align(
-            alignment: Alignment.centerRight,
-            child: SizedBox(
-              height: 0.5,
-              width: MediaQuery.of(context).size.width / 1.3,
-              child: Divider(),
-            ),
-          ),
+          separatorBuilder:
+              (BuildContext context, int index) => Align(
+                alignment: Alignment.centerRight,
+                child: SizedBox(
+                  height: 0.5,
+                  width: MediaQuery.of(context).size.width / 1.3,
+                  child: Divider(),
+                ),
+              ),
           itemCount: notifications.length,
         ),
       ),

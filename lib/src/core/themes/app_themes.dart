@@ -16,13 +16,13 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: AppColors.lightPrimary,
       scaffoldBackgroundColor: AppColors.lightWhiteSmoke,
-      appBarTheme: const AppBarTheme(
-        color: AppColors.lightBg,
-      ),
+      appBarTheme: const AppBarTheme(color: AppColors.lightBg),
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme)
-          .copyWith(
-              bodyMedium: const TextStyle(color: AppColors.lightBodyTextColor)),
+      textTheme: GoogleFonts.poppinsTextTheme(
+        ThemeData.light().textTheme,
+      ).copyWith(
+        bodyMedium: const TextStyle(color: AppColors.lightBodyTextColor),
+      ),
     );
   }
 
@@ -33,27 +33,29 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: AppColors.lightPrimary,
       scaffoldBackgroundColor: AppColors.darkBg,
-      appBarTheme: const AppBarTheme(
-        color: AppColors.darkBg,
-      ),
+      appBarTheme: const AppBarTheme(color: AppColors.darkBg),
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme)
-          .copyWith(
-              bodyMedium: const TextStyle(color: AppColors.darkBodyTextColor)),
+      textTheme: GoogleFonts.poppinsTextTheme(
+        ThemeData.dark().textTheme,
+      ).copyWith(
+        bodyMedium: const TextStyle(color: AppColors.darkBodyTextColor),
+      ),
     );
   }
 
   static CupertinoThemeData ilight() {
     return const CupertinoThemeData(
-        brightness: Brightness.light,
-        primaryColor: AppColors.lightPrimary,
-        scaffoldBackgroundColor: AppColors.lightBg);
+      brightness: Brightness.light,
+      primaryColor: AppColors.lightPrimary,
+      scaffoldBackgroundColor: AppColors.lightBg,
+    );
   }
 
   static CupertinoThemeData idark() {
     return const CupertinoThemeData(
-        brightness: Brightness.dark,
-        primaryColor: AppColors.darkPrimary,
-        scaffoldBackgroundColor: AppColors.darkBg);
+      brightness: Brightness.dark,
+      primaryColor: AppColors.darkPrimary,
+      scaffoldBackgroundColor: AppColors.darkBg,
+    );
   }
 }

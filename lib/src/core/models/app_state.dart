@@ -6,18 +6,19 @@ class AppState {
   Future<String?>? jwtToken;
   bool onboardingCompleted;
   String languageCode;
-  String appVersion;
+  String? appVersion;
   bool dbSynced;
   String? dbSyncedAt;
 
-  AppState(
-      {this.themeMode = ThemeMode.light,
-      this.jwtToken,
-      this.onboardingCompleted = false,
-      this.languageCode = 'en',
-      this.appVersion = '',
-      this.dbSynced = false,
-      this.dbSyncedAt});
+  AppState({
+    this.themeMode = ThemeMode.light,
+    this.jwtToken,
+    this.onboardingCompleted = false,
+    this.languageCode = 'en',
+    this.appVersion,
+    this.dbSynced = false,
+    this.dbSyncedAt,
+  });
 
   AppState copyWith({
     ThemeMode? themeMode,
@@ -33,6 +34,7 @@ class AppState {
       jwtToken: jwtToken ?? this.jwtToken,
       onboardingCompleted: onboardingCompleted ?? this.onboardingCompleted,
       languageCode: languageCode ?? this.languageCode,
+      appVersion: appVersion ?? this.appVersion,
       dbSynced: dbSynced ?? this.dbSynced,
       dbSyncedAt: dbSyncedAt ?? this.dbSyncedAt,
     );

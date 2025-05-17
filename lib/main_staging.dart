@@ -18,7 +18,7 @@ import 'package:path_provider/path_provider.dart';
 
 // Project imports:
 import 'firebase_options.dart';
-import 'src/app.dart';
+import 'src/app_staging.dart';
 import 'src/core/providers/http_client_provider.dart';
 import 'src/core/providers/shared_preferences_provider.dart';
 import 'src/core/services/notification/fcm_notification.dart';

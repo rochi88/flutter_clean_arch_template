@@ -25,13 +25,16 @@ class AuthRepository {
     String? fcmToken = await getFcmToken();
     Map<String, dynamic> deviceInfo = await DeviceInfo().initPlatformState();
 
-    final response = await httpClient.post('/auth/login', data: {
-      'phone': phone,
-      'password': password,
-      'device_name': 'parentapp',
-      'device_info': deviceInfo,
-      'fcm_token': fcmToken
-    });
+    final response = await httpClient.post(
+      '/auth/login',
+      data: {
+        'phone': phone,
+        'password': password,
+        'device_name': 'parentapp',
+        'device_info': deviceInfo,
+        'fcm_token': fcmToken,
+      },
+    );
 
     if (response.data != null) {
       _authState.value = AppUser.fromJson(response.data!['user']);

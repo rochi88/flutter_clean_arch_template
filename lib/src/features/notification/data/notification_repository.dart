@@ -13,10 +13,12 @@ class NotificationRepository {
 
     final response = await httpClient.get('/notifications');
 
-    final result = response.data!['data']
-        .map<Notification>(
-            (e) => Notification.fromJson(e as Map<String, dynamic>))
-        .toList();
+    final result =
+        response.data!['data']
+            .map<Notification>(
+              (e) => Notification.fromJson(e as Map<String, dynamic>),
+            )
+            .toList();
 
     return result;
   }

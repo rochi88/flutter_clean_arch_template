@@ -25,10 +25,7 @@ class Background extends StatelessWidget {
             Positioned(
               top: 0,
               left: 0,
-              child: Image.asset(
-                topImage,
-                width: 120,
-              ),
+              child: Image.asset(topImage, width: 120),
             ),
             // Positioned(
             //   bottom: 0,

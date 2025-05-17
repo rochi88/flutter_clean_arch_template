@@ -1,6 +1,1 @@
-enum ScreenStatus {
-  loading,
-  ready,
-  fetchingMore,
-  error,
-}
+enum ScreenStatus { loading, ready, fetchingMore, error }

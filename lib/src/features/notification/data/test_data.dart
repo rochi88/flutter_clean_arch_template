@@ -31,11 +31,12 @@ List notifs = [
 ];
 
 List notifications = List.generate(
-    13,
-    (index) => {
-          'name': names[random.nextInt(10)],
-          // 'dp': 'https://i.pravatar.cc/10${random.nextInt(10)}',
-          'dp': 'https://i.pravatar.cc/100',
-          'time': '${random.nextInt(50)} min ago',
-          'note': notifs[random.nextInt(10)]
-        });
+  13,
+  (index) => {
+    'name': names[random.nextInt(10)],
+    // 'dp': 'https://i.pravatar.cc/10${random.nextInt(10)}',
+    'dp': 'https://i.pravatar.cc/100',
+    'time': '${random.nextInt(50)} min ago',
+    'note': notifs[random.nextInt(10)],
+  },
+);

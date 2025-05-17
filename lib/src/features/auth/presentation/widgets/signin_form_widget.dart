@@ -30,12 +30,11 @@ class SigninFormWidget extends ConsumerWidget {
               keyboardType: TextInputType.number,
               maxLength: 11,
               autovalidateMode: AutovalidateMode.onUnfocus,
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-              ],
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               decoration: const InputDecoration(
-                  label: Text('Phone'),
-                  prefixIcon: Icon(Icons.numbers_outlined)),
+                label: Text('Phone'),
+                prefixIcon: Icon(Icons.numbers_outlined),
+              ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your phone';
@@ -53,7 +52,9 @@ class SigninFormWidget extends ConsumerWidget {
               autofillHints: const [AutofillHints.password],
               obscureText: true,
               decoration: const InputDecoration(
-                  label: Text('Password'), prefixIcon: Icon(Icons.fingerprint)),
+                label: Text('Password'),
+                prefixIcon: Icon(Icons.fingerprint),
+              ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your password';
@@ -72,7 +73,7 @@ class SigninFormWidget extends ConsumerWidget {
                 },
                 child: Text('Sign in'.toUpperCase()),
               ),
-            )
+            ),
           ],
         ),
       ),

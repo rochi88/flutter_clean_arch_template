@@ -11,7 +11,9 @@ import '../../services/storage/secure_storage_service.dart';
 class AuthInterceptor extends Interceptor {
   @override
   void onRequest(
-      RequestOptions options, RequestInterceptorHandler handler) async {
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
     options.headers['X-API-KEY'] = Env.apiKey;
     if (!options.path.contains('/auth/login')) {
       String? token = await SecureStorageService().readSecureData('token');

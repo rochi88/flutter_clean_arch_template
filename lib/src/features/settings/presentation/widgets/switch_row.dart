@@ -17,17 +17,18 @@ class SwitchRow extends StatelessWidget {
   final bool value;
   final bool isVisible;
 
-  const SwitchRow(
-      {super.key,
-      required this.label,
-      this.labelColor,
-      required this.disableDivider,
-      this.backgroundColor,
-      required this.onTap,
-      required this.onSwitchChange,
-      this.disabled = false,
-      required this.value,
-      this.isVisible = true});
+  const SwitchRow({
+    super.key,
+    required this.label,
+    this.labelColor,
+    required this.disableDivider,
+    this.backgroundColor,
+    required this.onTap,
+    required this.onSwitchChange,
+    this.disabled = false,
+    required this.value,
+    this.isVisible = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,11 +57,13 @@ class SwitchRow extends StatelessWidget {
                     child: Text(
                       label,
                       style: TextStyle(
-                          fontFamily: 'Exo2',
-                          fontSize: 14.0,
-                          color: disabled
-                              ? Colors.black54
-                              : labelColor ?? Colors.black),
+                        fontFamily: 'Exo2',
+                        fontSize: 14.0,
+                        color:
+                            disabled
+                                ? Colors.black54
+                                : labelColor ?? Colors.black,
+                      ),
                     ),
                   ),
                   CupertinoSwitch(value: value, onChanged: onSwitchChange),
@@ -72,9 +75,10 @@ class SwitchRow extends StatelessWidget {
             ),
           ),
           VisibleWidget(
-            visibility: disableDivider != true
-                ? VisibilityFlag.visible
-                : VisibilityFlag.gone, // If last row remove divider
+            visibility:
+                disableDivider != true
+                    ? VisibilityFlag.visible
+                    : VisibilityFlag.gone, // If last row remove divider
             child: Divider(
               height: 1.0,
               indent: size.getWidthPx(2),

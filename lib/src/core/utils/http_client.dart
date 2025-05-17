@@ -26,11 +26,12 @@ class HttpClient with DioMixin implements Dio {
 
     // !!!! DO NOT USE THIS ON WEB BUILD !!!!
     httpClientAdapter = NativeAdapter(
-      createCupertinoConfiguration: () =>
-          URLSessionConfiguration.ephemeralSessionConfiguration()
-            ..allowsCellularAccess = false
-            ..allowsConstrainedNetworkAccess = false
-            ..allowsExpensiveNetworkAccess = false,
+      createCupertinoConfiguration:
+          () =>
+              URLSessionConfiguration.ephemeralSessionConfiguration()
+                ..allowsCellularAccess = false
+                ..allowsConstrainedNetworkAccess = false
+                ..allowsExpensiveNetworkAccess = false,
     );
 
     // httpClientAdapter = BrowserHttpClientAdapter(withCredentials: true);

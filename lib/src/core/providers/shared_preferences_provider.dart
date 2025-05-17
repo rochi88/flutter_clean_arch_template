@@ -10,8 +10,8 @@ Future<SharedPreferencesWithCache> sharedPreferences(Ref ref) {
   // return SharedPreferences.getInstance();
   return SharedPreferencesWithCache.create(
     cacheOptions: const SharedPreferencesWithCacheOptions(
-        // When an allowlist is included, any keys that aren't included cannot be used.
-        // allowList: <String>{'repeat', 'action'},
-        ),
+      // When an allowlist is included, any keys that aren't included cannot be used.
+      // allowList: <String>{'repeat', 'action'},
+    ),
   );
 }

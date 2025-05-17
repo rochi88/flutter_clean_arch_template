@@ -31,14 +31,17 @@ class FormHeaderWidget extends StatelessWidget {
       // crossAxisAlignment: crossAxisAlignment,
       children: [
         Image(
-            image: AssetImage(image),
-            color: imageColor,
-            height: size.height * imageHeight),
+          image: AssetImage(image),
+          color: imageColor,
+          height: size.height * imageHeight,
+        ),
         SizedBox(height: heightBetween),
         Text(title, style: Theme.of(context).textTheme.headlineMedium),
-        Text(subTitle,
-            textAlign: textAlign,
-            style: Theme.of(context).textTheme.bodyMedium),
+        Text(
+          subTitle,
+          textAlign: textAlign,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ],
     );
   }

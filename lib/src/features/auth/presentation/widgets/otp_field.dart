@@ -6,11 +6,12 @@ class OTPField extends StatefulWidget {
   final int length;
   final TextEditingController otpController;
   final double spaceBetween;
-  const OTPField(
-      {super.key,
-      this.length = 4,
-      this.spaceBetween = 10,
-      required this.otpController});
+  const OTPField({
+    super.key,
+    this.length = 4,
+    this.spaceBetween = 10,
+    required this.otpController,
+  });
 
   @override
   State<OTPField> createState() => _OTPFieldState();
@@ -35,7 +36,7 @@ class _OTPFieldState extends State<OTPField> {
 
   @override
   Widget build(BuildContext context) {
-// To Listen Keyboard Events
+    // To Listen Keyboard Events
     return KeyboardListener(
       onKeyEvent: (event) {
         // Checking the whether the user click any key
@@ -53,46 +54,47 @@ class _OTPFieldState extends State<OTPField> {
         width: MediaQuery.sizeOf(context).width,
         child: Center(
           child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: widget.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return Container(
-                  height: 40,
-                  width: 40,
-                  margin: EdgeInsets.only(
-                      right:
-                          index == widget.length - 1 ? 0 : widget.spaceBetween),
-                  child: TextField(
-                    maxLength: 1,
-                    focusNode: _focusNodes[index],
-                    controller: _textControllers[index],
-                    textAlign: TextAlign.center,
-                    decoration:
-                        const InputDecoration(counter: SizedBox.shrink()),
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      // for below version 2 use this
-                      FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                      // for version 2 and greater youcan also use this
-                      FilteringTextInputFormatter.digitsOnly,
-                    ],
-                    onChanged: (val) {
-                      if (val.isNotEmpty) {
-                        widget.otpController.text = getCombinedString();
-                        if (index < widget.length - 1) {
-                          // changing the focus to next box using index
-                          FocusScope.of(context)
-                              .requestFocus(_focusNodes[index + 1]);
-                        } else {
-                          // removing the keyboard focus
-                          _focusNodes[index].unfocus();
-                        }
+            scrollDirection: Axis.horizontal,
+            itemCount: widget.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return Container(
+                height: 40,
+                width: 40,
+                margin: EdgeInsets.only(
+                  right: index == widget.length - 1 ? 0 : widget.spaceBetween,
+                ),
+                child: TextField(
+                  maxLength: 1,
+                  focusNode: _focusNodes[index],
+                  controller: _textControllers[index],
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(counter: SizedBox.shrink()),
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    // for below version 2 use this
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                    // for version 2 and greater youcan also use this
+                    FilteringTextInputFormatter.digitsOnly,
+                  ],
+                  onChanged: (val) {
+                    if (val.isNotEmpty) {
+                      widget.otpController.text = getCombinedString();
+                      if (index < widget.length - 1) {
+                        // changing the focus to next box using index
+                        FocusScope.of(
+                          context,
+                        ).requestFocus(_focusNodes[index + 1]);
+                      } else {
+                        // removing the keyboard focus
+                        _focusNodes[index].unfocus();
                       }
-                    },
-                  ),
-                );
-              }),
+                    }
+                  },
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
@@ -122,7 +124,7 @@ class _OTPFieldState extends State<OTPField> {
     }
   }
 
-// getCombinedString this method is used to get the otp as single string
+  // getCombinedString this method is used to get the otp as single string
   String getCombinedString() {
     String combinedString = '';
     for (TextEditingController controller in _textControllers) {

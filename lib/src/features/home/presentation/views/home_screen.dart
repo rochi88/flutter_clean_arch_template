@@ -49,9 +49,7 @@ class HomeScreen extends ConsumerWidget {
             ),
             selectedItemDecoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: actionColor.withValues(alpha: 0.37),
-              ),
+              border: Border.all(color: actionColor.withValues(alpha: 0.37)),
               gradient: const LinearGradient(
                 colors: [accentCanvasColor, canvasColor],
               ),
@@ -59,19 +57,14 @@ class HomeScreen extends ConsumerWidget {
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.28),
                   blurRadius: 30,
-                )
+                ),
               ],
             ),
-            iconTheme: const IconThemeData(
-              color: Colors.white,
-              size: 20,
-            ),
+            iconTheme: const IconThemeData(color: Colors.white, size: 20),
           ),
           extendedTheme: const SidebarXTheme(
             width: 200,
-            decoration: BoxDecoration(
-              color: canvasColor,
-            ),
+            decoration: BoxDecoration(color: canvasColor),
             margin: EdgeInsets.only(right: 10),
           ),
           footerDivider: divider,

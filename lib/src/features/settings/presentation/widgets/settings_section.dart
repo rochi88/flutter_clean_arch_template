@@ -12,14 +12,15 @@ class SettingSection extends StatefulWidget {
   final Color backgroundColor;
   final List<Widget> children;
 
-  const SettingSection(
-      {required this.headerText,
-      required this.headerTextColor,
-      required this.headerFontSize,
-      required this.children,
-      required this.disableDivider,
-      required this.backgroundColor,
-      super.key});
+  const SettingSection({
+    required this.headerText,
+    required this.headerTextColor,
+    required this.headerFontSize,
+    required this.children,
+    required this.disableDivider,
+    required this.backgroundColor,
+    super.key,
+  });
 
   @override
   State<SettingSection> createState() => _SettingSectionState();
@@ -42,10 +43,11 @@ class _SettingSectionState extends State<SettingSection> {
           child: Text(
             widget.headerText,
             style: TextStyle(
-                fontFamily: 'Exo2',
-                fontSize: widget.headerFontSize,
-                fontWeight: FontWeight.w500,
-                color: widget.headerTextColor),
+              fontFamily: 'Exo2',
+              fontSize: widget.headerFontSize,
+              fontWeight: FontWeight.w500,
+              color: widget.headerTextColor,
+            ),
           ),
         ),
         Card(
@@ -55,9 +57,7 @@ class _SettingSectionState extends State<SettingSection> {
             vertical: size.getWidthPx(6),
           ),
           borderOnForeground: true,
-          child: Column(
-            children: widget.children,
-          ),
+          child: Column(children: widget.children),
         ),
       ],
     );
