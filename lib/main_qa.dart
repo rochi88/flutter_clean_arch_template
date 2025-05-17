@@ -76,7 +76,7 @@ Future<void> main() async {
                 path: 'assets/translations',
                 supportedLocales: const [Locale('en'), Locale('bn')],
                 fallbackLocale: const Locale('en'),
-                child: const DevApp(),
+                child: const QaApp(),
               ),
             );
           },

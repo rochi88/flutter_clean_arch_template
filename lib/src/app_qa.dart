@@ -15,8 +15,8 @@ import 'core/themes/app_themes.dart';
 import 'core/utils/target_platform.dart';
 import 'routing/app_router.dart';
 
-class DevApp extends ConsumerWidget {
-  const DevApp({super.key});
+class QaApp extends ConsumerWidget {
+  const QaApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
