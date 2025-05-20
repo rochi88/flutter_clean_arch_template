@@ -24,8 +24,7 @@ import 'src/core/providers/http_client_provider.dart';
 import 'src/core/providers/shared_preferences_provider.dart';
 import 'src/core/services/notification/fcm_notification.dart';
 import 'src/core/utils/target_platform.dart';
-
-late String tempPath;
+import 'src/core/constants/app_config.dart';
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {

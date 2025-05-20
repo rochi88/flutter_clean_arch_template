@@ -4,7 +4,7 @@ import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // Project imports:
-import '../../../main.dart';
+import '../constants/app_config.dart';
 
 part 'hive_storage_provider.g.dart';
 
