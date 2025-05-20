@@ -91,7 +91,9 @@ dependencies:
   flutter_displaymode: ^0.6.0
   flutter_screenutil: ^5.9.3
   json_annotation: ^4.9.0
-  device_preview: ^1.2.0
+  device_preview:
+    git:
+      url: https://github.com/rochi88/device_preview.git
   shared_preferences: ^2.5.3
   rxdart: ^0.28.0
   firebase_cached_image: ^0.7.0
@@ -109,10 +111,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
-  custom_lint: ^0.7.3
+  custom_lint: ^0.7.5
   flutter_launcher_icons: ^0.14.3
-  riverpod_generator: ^2.6.3
-  riverpod_lint: ^2.6.3
+  riverpod_generator: ^2.6.5
+  riverpod_lint: ^2.6.5
   build_runner: ^2.4.15
   envied_generator: ^1.1.1
   json_serializable: ^6.9.5
