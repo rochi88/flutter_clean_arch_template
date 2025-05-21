@@ -68,7 +68,7 @@ dependencies:
   sidebarx: ^0.17.1
 
   # Datetime
-  intl: ^0.19.0
+  intl: ^0.20.2
 
   # Firebase
   firebase_analytics: ^11.4.5
