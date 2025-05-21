@@ -2,14 +2,14 @@
     "app_name": "Flutter Production Boilerplate",
 
     "home": "হোম",
-    "loading" : "লোডিং",
+    "loading" : "লোড হচ্ছে",
     "email" : "ইমেইল",
     "password" : "পাসওয়ার্ড",
     "name" : "নাম",
     "phone" : "ফোন",
-    "sign_in" : "সাইন ইন",
-    "sign_up" : "সাইন আপ",
-    "log_in" : "লগ ইন",
+    "sign_in" : "সাইন ইন করুন",
+    "sign_up" : "সাইন আপ করুন",
+    "log_in" : "লগ ইন করুন",
     "log_out" : "লগ আউট",    
 
     "dashboard": "ড্যাশবোর্ড",
@@ -18,40 +18,42 @@
     "settings": "সেটিংস",
     "profile" : "প্রোফাইল",
     "schedule": "সময়সূচী",
+
+    "orders": "আদেশ",
   
     "bottom_nav_first": "হোম",
     "bottom_nav_second": "তথ্য",
   
     "localization_title": "স্থানীয়করণ",
-    "localization_content": "Vereinfachte Übersetzungen mit dem Paket Easy Translations.",
+    "localization_content": "সহজ অনুবাদ প্যাকেজের সাহায্যে সরলীকৃত অনুবাদ।",
   
     "linting_title": "লিন্টিং",
-    "linting_content": "Strengere Linting-Regeln mit Flutter Lints, empfohlen von Google.",
+    "linting_content": "ফ্লাটার লিন্টস ব্যবহার করে লিন্টিং করার আরও কঠোর নিয়ম, গুগলের সুপারিশ।",
   
     "storage_title": "স্টোরেজ",
-    "storage_content": "Extrem schnelle, in reinem Dart geschriebene Datenbank mit Hive.",
+    "storage_content": "হাইভের সাথে খাঁটি ডার্টে লেখা অত্যন্ত দ্রুত ডাটাবেস।",
   
     "dark_mode_title": "নাইট মোড",
-    "dark_mode_content": "Sanfter Übergang in den Nachtmodus durch die eingebaute Theming-Engine.",
+    "dark_mode_content": "বিল্ট-ইন থিমিং ইঞ্জিনের জন্য নাইট মোডে মসৃণ রূপান্তর।",
   
     "state_title": "অবস্থা",
-    "state_content": "Leistungsstarke Zustandsverwaltung mit Cubit & BLOC.",
+    "state_content": "কিউবিট এবং ব্লকের সাহায্যে শক্তিশালী অবস্থা ব্যবস্থাপনা।",
   
     "display_title": "প্রদর্শন",
-    "display_content": "Displays mit hoher Bildwiederholrate durch Flutter Displaymode.",
+    "display_content": "ফ্লাটার ডিসপ্লে মোডের মাধ্যমে উচ্চ রিফ্রেশ রেটের ডিসপ্লে।",
   
     "language_switch_title": "ইংরেজি ব্যবহার করুন",
   
     "github_card_title": "GitHub repository",
-    "website_card_title": "Webseite",
-    "twitter_card_title": "Twitter",
-    "instagram_card_title": "Instagram",
-    "donate_card_title": "Spenden",
+    "website_card_title": "ওয়েবসাইট",
+    "twitter_card_title": "টুইটার",
+    "instagram_card_title": "ইনস্টাগ্রাম",
+    "donate_card_title": "দান করুন",
   
-    "author_divider_title": "Autor",
-    "packages_divider_title": "Pakete",
+    "author_divider_title": "লেখক",
+    "packages_divider_title": "প্যাকেজ",
   
-    "flutter_riverpod": "Riverpod",
+    "flutter_riverpod": "রিভারপড",
     "equatable": "Equatable",
     "lints": "Flutter Lints",
     "path_provider": "Path provider",
