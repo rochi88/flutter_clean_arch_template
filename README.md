@@ -197,6 +197,11 @@ to [ios/Runner/Info.plist](./ios/Runner/Info.plist) and remove the following cod
 </array>
 ```
 
+#### Flutter Notification
+
+1. put an icon named `app_icon.png` (36X36) inside `./android/app/src/res/drawable`
+2. make sure that image has transparent background
+
 #### Url Launcher
 
 For iOS go to [ios/Runner/Info.plist](./ios/Runner/Info.plist) and remove the following code:
