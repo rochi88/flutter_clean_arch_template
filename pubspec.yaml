@@ -51,7 +51,7 @@ dependencies:
 
   # Api calls
   dio: ^5.9.0
-  native_dio_adapter: ^1.4.0
+  native_dio_adapter: ^1.5.0
   dio_web_adapter: ^2.1.1
   pretty_dio_logger: ^1.4.0
   dio_smart_retry: ^7.0.1
