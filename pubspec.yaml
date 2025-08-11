@@ -71,12 +71,12 @@ dependencies:
   intl: ^0.20.2
 
   # Firebase
-  firebase_analytics: ^11.4.5
-  firebase_core: ^3.10.1
-  firebase_crashlytics: ^4.3.10
-  firebase_performance: ^0.10.1
+  firebase_analytics: ^12.0.0
+  firebase_core: ^4.0.0
+  firebase_crashlytics: ^5.0.0
+  firebase_performance: ^0.11.0
   firebase_performance_dio: ^0.7.1
-  firebase_messaging: ^15.2.10
+  firebase_messaging: ^16.0.0
 
   # Localization
   easy_localization: ^3.0.7
@@ -96,7 +96,7 @@ dependencies:
       url: https://github.com/rochi88/device_preview.git
   shared_preferences: ^2.5.3
   rxdart: ^0.28.0
-  firebase_cached_image: ^0.7.0
+  firebase_cached_image: ^0.8.0
   connectivity_plus: ^6.1.4
   device_info_plus: ^11.4.0
   timezone: ^0.10.1
