@@ -63,7 +63,7 @@ dependencies:
 
   # Ui
   flutter_svg: ^2.1.0
-  google_fonts: ^6.2.1
+  google_fonts: ^6.3.1
   shimmer: ^3.0.0
   sidebarx: ^0.17.1
 
