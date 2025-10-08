@@ -16,7 +16,7 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: AppColors.lightPrimary,
       scaffoldBackgroundColor: AppColors.lightWhiteSmoke,
-      appBarTheme: const AppBarTheme(color: AppColors.lightBg),
+      appBarTheme: const AppBarTheme(backgroundColor: AppColors.lightBg),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       textTheme: GoogleFonts.poppinsTextTheme(
         ThemeData.light().textTheme,
@@ -33,7 +33,7 @@ class AppThemes {
       primarySwatch: Colors.grey,
       primaryColor: AppColors.lightPrimary,
       scaffoldBackgroundColor: AppColors.darkBg,
-      appBarTheme: const AppBarTheme(color: AppColors.darkBg),
+      appBarTheme: const AppBarTheme(backgroundColor: AppColors.darkBg),
       visualDensity: VisualDensity.adaptivePlatformDensity,
       textTheme: GoogleFonts.poppinsTextTheme(
         ThemeData.dark().textTheme,
