@@ -96,7 +96,7 @@ dependencies:
       url: https://github.com/rochi88/device_preview.git
   shared_preferences: ^2.5.3
   rxdart: ^0.28.0
-  firebase_cached_image: ^0.8.0
+  firebase_cached_image: ^0.10.0
   connectivity_plus: ^6.1.4
   device_info_plus: ^11.4.0
   timezone: ^0.10.1
