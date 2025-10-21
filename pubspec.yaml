@@ -98,7 +98,7 @@ dependencies:
   rxdart: ^0.28.0
   firebase_cached_image: ^0.8.0
   connectivity_plus: ^6.1.4
-  device_info_plus: ^11.4.0
+  device_info_plus: ^12.2.0
   timezone: ^0.10.1
 
 dev_dependencies:
