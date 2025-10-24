@@ -42,7 +42,7 @@ dependencies:
   path_provider: ^2.1.5
 
   # Database
-  hive_ce: ^2.11.3
+  hive_ce: ^2.15.1
   hive_ce_flutter: ^2.3.0
 
   # Sate management
